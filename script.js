@@ -308,4 +308,47 @@
         }, { once: true });
     });
 
+    /* ---------- Certificate modal ---------- */
+    const certModal = document.getElementById('certModal');
+    const certModalImage = document.getElementById('modalCertImage');
+
+    const openCertModal = (imageUrl) => {
+        certModalImage.innerHTML = `<img src="${imageUrl}" alt="Certificate" />`;
+        certModal.removeAttribute('hidden');
+        void certModal.offsetWidth;
+        certModal.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => certModal.querySelector('.modal-close').focus(), 80);
+    };
+
+    const closeCertModal = () => {
+        if (!certModal.classList.contains('is-open')) return;
+        certModal.classList.remove('is-open');
+        setTimeout(() => {
+            certModal.setAttribute('hidden', '');
+            certModalImage.innerHTML = '';
+            document.body.style.overflow = '';
+        }, 400);
+    };
+
+    certModal.addEventListener('click', (e) => {
+        if (e.target.dataset.close !== undefined) closeCertModal();
+    });
+
+    document.querySelectorAll('.cert-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            // Don't open modal when clicking the verify link
+            if (e.target.closest('.cert-verify')) return;
+            const imageUrl = card.dataset.certImage;
+            if (imageUrl) openCertModal(imageUrl);
+        });
+    });
+
+    // ESC closes whichever modal is open
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeCertModal();
+        }
+    });
+
 })();

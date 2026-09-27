@@ -1471,6 +1471,177 @@ ul, ol { list-style: none; }
     line-height: 1.6;
 }
 
+/* ============ CERTIFICATIONS ============ */
+.certs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+}
+
+.cert-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 420ms var(--ease), border-color 420ms var(--ease), box-shadow 420ms var(--ease);
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--border-strong);
+    box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.7);
+}
+
+.cert-image {
+    position: relative;
+    aspect-ratio: 16/11;
+    overflow: hidden;
+    background: #15131C;
+}
+
+.cert-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 900ms var(--ease);
+    will-change: transform;
+}
+
+.cert-card:hover .cert-image img {
+    transform: scale(1.025);
+}
+
+.cert-image-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 8, 10, 0);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    font-weight: 500;
+    opacity: 0;
+    transition: background 320ms var(--ease), opacity 320ms var(--ease);
+    pointer-events: none;
+}
+
+.cert-card:hover .cert-image-overlay {
+    background: rgba(8, 8, 10, 0.55);
+    opacity: 1;
+}
+
+.cert-meta {
+    padding: 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cert-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.cert-no {
+    color: var(--purple-soft);
+}
+
+.cert-title {
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+}
+
+.cert-issuer {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: -4px 0 4px;
+}
+
+.cert-foot {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
+    gap: 12px;
+}
+
+.cert-code {
+    font-family: 'Inter', monospace;
+    font-feature-settings: 'tnum';
+    letter-spacing: 0.04em;
+}
+
+.cert-verify {
+    color: var(--purple-soft);
+    font-weight: 500;
+    transition: gap 280ms var(--ease), color 280ms var(--ease);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding-bottom: 2px;
+    position: relative;
+}
+
+.cert-verify::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background: var(--purple-soft);
+    transition: width 380ms var(--ease);
+}
+
+.cert-verify:hover { gap: 10px; }
+.cert-verify:hover::after { width: 100%; }
+.cert-verify-static { color: #6CCB7F; }
+
+/* Cert modal */
+.modal-frame-cert {
+    width: min(94vw, 900px);
+}
+
+.modal-cert-image {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #15131C;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-cert-image img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    display: block;
+}
+
 /* ============ CONTACT ============ */
 .section-contact {
     text-align: center;
@@ -1832,6 +2003,7 @@ a:focus-visible, button:focus-visible {
     .about-inner, .why-inner { grid-template-columns: 1fr; gap: 40px; }
     .approach-list { grid-template-columns: 1fr; }
     .process-grid { grid-template-columns: 1fr 1fr; }
+    .certs-grid { grid-template-columns: 1fr; gap: 20px; }
 
     .ai-line {
         grid-template-columns: auto 1fr;
@@ -1849,10 +2021,10 @@ a:focus-visible, button:focus-visible {
     .footer-bottom { flex-direction: column; align-items: flex-start; }
 
     /* Soften card hover for touch devices */
-    .work-card:hover, .ugc-card:hover {
+    .work-card:hover, .ugc-card:hover, .cert-card:hover {
         transform: none;
     }
-    .work-card:active, .ugc-card:active {
+    .work-card:active, .ugc-card:active, .cert-card:active {
         transform: scale(0.99);
         transition-duration: 120ms;
     }

@@ -1,0 +1,782 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08080A" />
+    <title>Abdullah — Websites, UGC & AI Automation</title>
+    <meta name="description" content="Abdullah builds modern websites, UGC content and practical AI automation systems for businesses." />
+    <meta name="author" content="Abdullah" />
+    <link rel="canonical" href="https://abdullah.studio/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Abdullah — Websites, UGC & AI Automation" />
+    <meta property="og:description" content="Abdullah builds modern websites, UGC content and practical AI automation systems for businesses." />
+    <meta property="og:url" content="https://abdullah.studio/" />
+    <meta property="og:image" content="assets/profile.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Abdullah — Websites, UGC & AI Automation" />
+    <meta name="twitter:description" content="Abdullah builds modern websites, UGC content and practical AI automation systems for businesses." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%2308080A'/%3E%3Ctext x='50' y='66' font-family='Inter, sans-serif' font-size='52' font-weight='700' fill='%23F5F5F5' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Cursor follower (subtle) -->
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <header class="nav" id="nav">
+        <div class="container nav-inner">
+            <a href="#top" class="brand" aria-label="Abdullah — Home">ABDULLAH<span class="brand-dot">.</span></a>
+
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#work" class="nav-link" data-link>Work</a>
+                <a href="#services" class="nav-link" data-link>Services</a>
+                <a href="#about" class="nav-link" data-link>About</a>
+                <a href="#contact" class="nav-link" data-link>Contact</a>
+            </nav>
+
+            <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-primary nav-cta">
+                <span>Book a Call</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </div>
+
+        <!-- Mobile drawer -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <div class="mobile-menu-inner">
+                <a href="#work" class="mobile-link">Work</a>
+                <a href="#services" class="mobile-link">Services</a>
+                <a href="#about" class="mobile-link">About</a>
+                <a href="#contact" class="mobile-link">Contact</a>
+                <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Book a Call</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-text">
+                    <div class="eyebrow reveal" data-reveal-delay="0">
+                        <span class="eyebrow-dot"></span>
+                        DIGITAL <span class="eyebrow-sep">•</span> CREATIVE <span class="eyebrow-sep">•</span> AI
+                    </div>
+
+                    <h1 class="hero-title reveal" data-reveal-delay="120">
+                        Building Digital Experiences<br />
+                        That <span class="hl">Look Good.</span><br />
+                        And <span class="hl-soft">Work Hard.</span>
+                    </h1>
+
+                    <p class="hero-sub reveal" data-reveal-delay="260">
+                        I help businesses turn ideas into polished digital experiences — from high-converting websites and UGC content to AI automation and custom business systems.
+                    </p>
+
+                    <div class="hero-ctas reveal" data-reveal-delay="420">
+                        <a href="#work" class="btn btn-primary btn-lg">
+                            <span>View My Work</span>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                        </a>
+                        <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
+                            <span>Book a Call</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-trust reveal" data-reveal-delay="560">
+                        <span>Available for freelance &amp; remote projects</span>
+                    </div>
+
+                    <div class="hero-services reveal" data-reveal-delay="680">
+                        <span class="hs-item">Website Creation</span>
+                        <span class="hs-sep">/</span>
+                        <span class="hs-item">UGC Content</span>
+                        <span class="hs-sep">/</span>
+                        <span class="hs-item">AI Automation</span>
+                    </div>
+                </div>
+
+                <div class="hero-portrait reveal-portrait">
+                    <div class="portrait-wrap">
+                        <div class="portrait-ring"></div>
+                        <img src="assets/profile.png" alt="Portrait of Abdullah" class="portrait-img" loading="eager" />
+                        <div class="portrait-glow" aria-hidden="true"></div>
+                    </div>
+                    <div class="portrait-meta">
+                        <span class="meta-line"></span>
+                        <span class="meta-text">Based in Pakistan · Working Worldwide</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator" id="scrollIndicator" aria-hidden="true">
+                <span>Scroll to explore</span>
+                <span class="scroll-indicator-line"></span>
+            </div>
+
+            <div class="hero-marquee" aria-hidden="true">
+                <div class="marquee-track">
+                    <span>Website Creation</span><span>·</span>
+                    <span>UGC &amp; Product Content</span><span>·</span>
+                    <span>AI Voice Agents</span><span>·</span>
+                    <span>CRM Automation</span><span>·</span>
+                    <span>n8n Workflows</span><span>·</span>
+                    <span>Editorial Web Design</span><span>·</span>
+                    <span>Website Creation</span><span>·</span>
+                    <span>UGC &amp; Product Content</span><span>·</span>
+                    <span>AI Voice Agents</span><span>·</span>
+                    <span>CRM Automation</span><span>·</span>
+                    <span>n8n Workflows</span><span>·</span>
+                    <span>Editorial Web Design</span><span>·</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SELECTED WORK -->
+        <section class="section section-work" id="work">
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-eyebrow reveal">— 01 / Selected Work</div>
+                    <h2 class="section-title reveal">Selected Work</h2>
+                    <p class="section-sub reveal">A selection of websites, UGC content and AI systems I've built.</p>
+                </div>
+
+                <!-- Work category filters -->
+                <div class="work-filters reveal" role="tablist" aria-label="Work filters">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+                    <button class="filter-btn" data-filter="websites" role="tab" aria-selected="false">Websites</button>
+                    <button class="filter-btn" data-filter="ugc" role="tab" aria-selected="false">UGC</button>
+                    <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI Automation</button>
+                </div>
+
+                <!-- Websites group -->
+                <div class="work-group" data-group="websites">
+                    <div class="group-label reveal">Website Creation</div>
+                    <div class="work-grid editorial-grid">
+                        <article class="work-card work-feature reveal" data-video-id="In9nWHJ5Gxw" data-category="websites">
+                            <div class="thumb">
+                                <img src="https://i.ytimg.com/vi/In9nWHJ5Gxw/hqdefault.jpg" alt="Website Project 01 preview" loading="lazy" />
+                                <button class="play-btn" aria-label="Play video">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="thumb-overlay"></div>
+                            </div>
+                            <div class="work-meta">
+                                <span class="work-cat">Website</span>
+                                <h3 class="work-title">Website Project 01</h3>
+                                <span class="work-view">View project →</span>
+                            </div>
+                        </article>
+
+                        <article class="work-card reveal" data-video-id="USwXixnEe1k" data-category="websites">
+                            <div class="thumb">
+                                <img src="https://i.ytimg.com/vi/USwXixnEe1k/hqdefault.jpg" alt="Website Project 02 preview" loading="lazy" />
+                                <button class="play-btn" aria-label="Play video">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="thumb-overlay"></div>
+                            </div>
+                            <div class="work-meta">
+                                <span class="work-cat">Website</span>
+                                <h3 class="work-title">Website Project 02</h3>
+                                <span class="work-view">View project →</span>
+                            </div>
+                        </article>
+
+                        <article class="work-card reveal" data-video-id="MEr43Q2GdkM" data-category="websites">
+                            <div class="thumb">
+                                <img src="https://i.ytimg.com/vi/MEr43Q2GdkM/hqdefault.jpg" alt="Website Project 03 preview" loading="lazy" />
+                                <button class="play-btn" aria-label="Play video">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="thumb-overlay"></div>
+                            </div>
+                            <div class="work-meta">
+                                <span class="work-cat">Website</span>
+                                <h3 class="work-title">Website Project 03</h3>
+                                <span class="work-view">View project →</span>
+                            </div>
+                        </article>
+
+                        <article class="work-card reveal" data-video-id="wIqwLIjSB2E" data-category="websites">
+                            <div class="thumb">
+                                <img src="https://i.ytimg.com/vi/wIqwLIjSB2E/hqdefault.jpg" alt="Website Project 04 preview" loading="lazy" />
+                                <button class="play-btn" aria-label="Play video">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="thumb-overlay"></div>
+                            </div>
+                            <div class="work-meta">
+                                <span class="work-cat">Website</span>
+                                <h3 class="work-title">Website Project 04</h3>
+                                <span class="work-view">View project →</span>
+                            </div>
+                        </article>
+
+                        <article class="work-card reveal" data-video-id="wR4eg1iAATs" data-category="websites">
+                            <div class="thumb">
+                                <img src="https://i.ytimg.com/vi/wR4eg1iAATs/hqdefault.jpg" alt="Website Project 05 preview" loading="lazy" />
+                                <button class="play-btn" aria-label="Play video">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="thumb-overlay"></div>
+                            </div>
+                            <div class="work-meta">
+                                <span class="work-cat">Website</span>
+                                <h3 class="work-title">Website Project 05</h3>
+                                <span class="work-view">View project →</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- UGC group -->
+                <div class="work-group" data-group="ugc">
+                    <div class="group-label reveal">UGC &amp; Product Videos</div>
+                    <p class="group-sub reveal">Short-form product content designed to feel native in the feed while keeping the product at the center.</p>
+
+                    <div class="ugc-sections">
+                        <!-- Hair Care -->
+                        <div class="ugc-block reveal">
+                            <div class="ugc-block-head">
+                                <h4>Hair Care</h4>
+                                <span class="ugc-count">3 videos</span>
+                            </div>
+                            <div class="ugc-row">
+                                <article class="ugc-card" data-video-id="7E-zWxOlALw" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/7E-zWxOlALw/hqdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Hair Care</span>
+                                </article>
+
+                                <article class="ugc-card" data-video-id="nNY83tZYHNg" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/nNY83tZYHNg/hqdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Hair Care</span>
+                                </article>
+
+                                <article class="ugc-card" data-video-id="vS-BWQJIKIQ" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/vS-BWQJIKIQ/hqdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Hair Care</span>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- Skincare -->
+                        <div class="ugc-block reveal">
+                            <div class="ugc-block-head">
+                                <h4>Skincare</h4>
+                                <span class="ugc-count">1 video</span>
+                            </div>
+                            <div class="ugc-row">
+                                <article class="ugc-card" data-video-id="uk0Egv4TspY" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/uk0Egv4TspY/hqdefault.jpg" alt="Skincare UGC video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Skincare</span>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- Watch -->
+                        <div class="ugc-block reveal">
+                            <div class="ugc-block-head">
+                                <h4>Watch</h4>
+                                <span class="ugc-count">3 videos</span>
+                            </div>
+                            <div class="ugc-row">
+                                <article class="ugc-card" data-video-id="XOl3vkg-HM8" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/XOl3vkg-HM8/hqdefault.jpg" alt="Watch product video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Watch</span>
+                                </article>
+
+                                <article class="ugc-card" data-video-id="NwsMC_wqVPM" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/NwsMC_wqVPM/hqdefault.jpg" alt="Watch product video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Watch</span>
+                                </article>
+
+                                <article class="ugc-card" data-video-id="4ZG2_j5i7nk" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/4ZG2_j5i7nk/hqdefault.jpg" alt="Watch product video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Watch</span>
+                                </article>
+                            </div>
+                        </div>
+
+                        <!-- Perfume -->
+                        <div class="ugc-block reveal">
+                            <div class="ugc-block-head">
+                                <h4>Fragrance &amp; Product Ads</h4>
+                                <span class="ugc-count">4 videos</span>
+                            </div>
+                            <div class="ugc-row">
+                                <article class="ugc-card" data-video-id="UWed2OYzINY" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/UWed2OYzINY/hqdefault.jpg" alt="Fragrance product video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Fragrance</span>
+                                </article>
+
+                                <article class="ugc-card" data-video-id="5fAPOmSdLy0" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/5fAPOmSdLy0/hqdefault.jpg" alt="Fragrance product video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Fragrance</span>
+                                </article>
+
+                                <article class="ugc-card" data-video-id="osmQ1uB2PzE" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/osmQ1uB2PzE/hqdefault.jpg" alt="Product ad video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Product Ad</span>
+                                </article>
+
+                                <article class="ugc-card" data-video-id="cH_I_RODHzE" data-category="ugc">
+                                    <div class="ugc-thumb">
+                                        <img src="https://i.ytimg.com/vi/cH_I_RODHzE/hqdefault.jpg" alt="Product ad video" loading="lazy" />
+                                        <button class="play-btn small" aria-label="Play video">
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                        </button>
+                                    </div>
+                                    <span class="ugc-tag">Product Ad</span>
+                                </article>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI group -->
+                <div class="work-group" data-group="ai">
+                    <div class="group-label reveal">AI Automation</div>
+                    <p class="group-sub reveal">From AI voice agents to automated CRM systems — practical AI workflows that reduce repetitive work and help businesses move faster.</p>
+
+                    <div class="work-grid ai-grid">
+                        <article class="work-card ai-card reveal" data-video-id="r1W2g3Y0JAk" data-category="ai">
+                            <div class="thumb">
+                                <img src="https://i.ytimg.com/vi/r1W2g3Y0JAk/hqdefault.jpg" alt="AI Voice Agent demo preview" loading="lazy" />
+                                <button class="play-btn" aria-label="Play video">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="thumb-overlay"></div>
+                            </div>
+                            <div class="work-meta">
+                                <span class="work-cat">AI Voice Agent</span>
+                                <h3 class="work-title">AI Voice Agent Demo</h3>
+                                <span class="work-view">View demo →</span>
+                            </div>
+                        </article>
+
+                        <article class="work-card ai-card reveal" data-video-id="4Xgy7b65lpg" data-category="ai">
+                            <div class="thumb">
+                                <img src="https://i.ytimg.com/vi/4Xgy7b65lpg/hqdefault.jpg" alt="Advanced CRM demo preview" loading="lazy" />
+                                <button class="play-btn" aria-label="Play video">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="thumb-overlay"></div>
+                            </div>
+                            <div class="work-meta">
+                                <span class="work-cat">CRM System</span>
+                                <h3 class="work-title">Advanced CRM</h3>
+                                <span class="work-view">View demo →</span>
+                            </div>
+                        </article>
+
+                        <article class="work-card ai-card reveal" data-video-id="6DBikSIOahQ" data-category="ai">
+                            <div class="thumb">
+                                <img src="https://i.ytimg.com/vi/6DBikSIOahQ/hqdefault.jpg" alt="AI Receptionist demo preview" loading="lazy" />
+                                <button class="play-btn" aria-label="Play video">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                </button>
+                                <div class="thumb-overlay"></div>
+                            </div>
+                            <div class="work-meta">
+                                <span class="work-cat">AI Receptionist</span>
+                                <h3 class="work-title">AI Receptionist Demo</h3>
+                                <span class="work-view">View demo →</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UGC FEATURE SECTION (Editorial heading) -->
+        <section class="section section-ugc-feature">
+            <div class="container ugc-feature-inner">
+                <div class="ugc-feature-text reveal">
+                    <div class="section-eyebrow">— 02 / UGC Direction</div>
+                    <h2 class="ugc-feature-title">
+                        UGC That Feels Native.<br />
+                        Content That <span class="hl-soft">Gets Attention.</span>
+                    </h2>
+                    <p class="ugc-feature-sub">Short-form product content designed to feel natural in the feed while keeping the product at the center. Real hooks. Real pacing. Real results on screen.</p>
+                    <a href="#work" class="text-link">Browse all UGC work <span aria-hidden="true">→</span></a>
+                </div>
+                <div class="ugc-feature-visual reveal">
+                    <div class="ugc-phone">
+                        <div class="phone-notch"></div>
+                        <div class="phone-stack">
+                            <article class="ugc-card phone-card" data-video-id="7E-zWxOlALw" data-category="ugc">
+                                <div class="ugc-thumb">
+                                    <img src="https://i.ytimg.com/vi/7E-zWxOlALw/hqdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
+                                    <button class="play-btn small" aria-label="Play video">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                                    </button>
+                                </div>
+                                <span class="ugc-tag">Hair Care</span>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI FEATURE SECTION -->
+        <section class="section section-ai-feature">
+            <div class="container ai-feature-inner">
+                <div class="ai-feature-head">
+                    <div class="section-eyebrow reveal">— 03 / AI Systems</div>
+                    <h2 class="ai-feature-title reveal">
+                        AI Systems.<br />
+                        Built for <span class="hl">Real Work.</span>
+                    </h2>
+                    <p class="ai-feature-sub reveal">From AI voice agents to automated CRM systems, I build practical AI workflows that help businesses reduce repetitive work and move faster.</p>
+                </div>
+
+                <div class="ai-stack reveal">
+                    <div class="ai-line" data-video-id="r1W2g3Y0JAk" data-category="ai">
+                        <span class="ai-num">01</span>
+                        <div class="ai-meta">
+                            <h4>AI Voice Agent</h4>
+                            <p>Conversational agent that handles calls and routing.</p>
+                        </div>
+                        <button class="ai-play" aria-label="Play AI Voice Agent demo">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            <span>Watch demo</span>
+                        </button>
+                    </div>
+
+                    <div class="ai-line" data-video-id="4Xgy7b65lpg" data-category="ai">
+                        <span class="ai-num">02</span>
+                        <div class="ai-meta">
+                            <h4>Advanced CRM</h4>
+                            <p>Pipeline, follow-ups and workflow automation in one place.</p>
+                        </div>
+                        <button class="ai-play" aria-label="Play CRM demo">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            <span>Watch demo</span>
+                        </button>
+                    </div>
+
+                    <div class="ai-line" data-video-id="4Xgy7b65lpg" data-category="ai">
+                        <span class="ai-num">03</span>
+                        <div class="ai-meta">
+                            <h4>n8n Agent</h4>
+                            <p>Custom automation workflows that connect tools and data.</p>
+                        </div>
+                        <button class="ai-play" aria-label="Play n8n Agent demo">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            <span>Watch demo</span>
+                        </button>
+                    </div>
+
+                    <div class="ai-line" data-video-id="6DBikSIOahQ" data-category="ai">
+                        <span class="ai-num">04</span>
+                        <div class="ai-meta">
+                            <h4>AI Receptionist</h4>
+                            <p>Always-on front desk that books, qualifies and replies.</p>
+                        </div>
+                        <button class="ai-play" aria-label="Play AI Receptionist demo">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+                            <span>Watch demo</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES -->
+        <section class="section section-services" id="services">
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-eyebrow reveal">— 04 / Services</div>
+                    <h2 class="section-title reveal">What I Build</h2>
+                    <p class="section-sub reveal">Three focused practices — design, content and automation — delivered as one cohesive workflow.</p>
+                </div>
+
+                <div class="services-grid">
+                    <article class="service-block reveal">
+                        <span class="service-no">01</span>
+                        <h3 class="service-title">Website Creation</h3>
+                        <p class="service-desc">Modern websites designed around the brand, user experience and business goal.</p>
+                        <ul class="service-list">
+                            <li>Landing pages</li>
+                            <li>Business websites</li>
+                            <li>Portfolio websites</li>
+                            <li>Conversion-focused pages</li>
+                            <li>Responsive design</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-block reveal">
+                        <span class="service-no">02</span>
+                        <h3 class="service-title">UGC &amp; Product Videos</h3>
+                        <p class="service-desc">Short-form content designed for social media, products and paid advertising.</p>
+                        <ul class="service-list">
+                            <li>UGC videos</li>
+                            <li>Product ads</li>
+                            <li>Social media videos</li>
+                            <li>Short-form content</li>
+                            <li>Creative concepts</li>
+                        </ul>
+                    </article>
+
+                    <article class="service-block reveal">
+                        <span class="service-no">03</span>
+                        <h3 class="service-title">AI Automation</h3>
+                        <p class="service-desc">Practical AI systems that automate repetitive business workflows.</p>
+                        <ul class="service-list">
+                            <li>AI voice agents</li>
+                            <li>AI receptionists</li>
+                            <li>CRM systems</li>
+                            <li>n8n automation</li>
+                            <li>AI agents</li>
+                            <li>Custom business workflows</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section section-about" id="about">
+            <div class="container about-inner">
+                <div class="about-left">
+                    <div class="section-eyebrow reveal">— 05 / About</div>
+                    <h2 class="about-title reveal">A Little<br />About Me</h2>
+                </div>
+                <div class="about-right">
+                    <p class="about-text reveal">
+                        I'm Abdullah — a digital marketer, website designer and AI automation specialist focused on building practical digital experiences.
+                    </p>
+                    <p class="about-text reveal">
+                        I work across websites, performance-focused content, UGC and AI-powered systems.
+                    </p>
+                    <div class="about-approach reveal">
+                        <h4>My approach is simple:</h4>
+                        <ol class="approach-list">
+                            <li><span>01</span> Understand the problem.</li>
+                            <li><span>02</span> Build the right solution.</li>
+                            <li><span>03</span> Make it look good.</li>
+                            <li><span>04</span> Make it useful.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS -->
+        <section class="section section-process">
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-eyebrow reveal">— 06 / Process</div>
+                    <h2 class="section-title reveal">How I Work</h2>
+                </div>
+
+                <ol class="process-grid">
+                    <li class="process-step reveal">
+                        <span class="step-num">01</span>
+                        <h4>Understand</h4>
+                        <p>I first understand the business, audience and actual goal.</p>
+                    </li>
+                    <li class="process-step reveal">
+                        <span class="step-num">02</span>
+                        <h4>Plan</h4>
+                        <p>I define the structure, creative direction and technical approach.</p>
+                    </li>
+                    <li class="process-step reveal">
+                        <span class="step-num">03</span>
+                        <h4>Build</h4>
+                        <p>I turn the plan into the actual website, content or automation.</p>
+                    </li>
+                    <li class="process-step reveal">
+                        <span class="step-num">04</span>
+                        <h4>Refine</h4>
+                        <p>I review the details, improve the experience and prepare the final result.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- WHY -->
+        <section class="section section-why">
+            <div class="container why-inner">
+                <div class="why-left">
+                    <div class="section-eyebrow reveal">— 07 / Working Together</div>
+                    <h2 class="why-title reveal">Why Work With Me</h2>
+                    <p class="why-sub reveal">Practical statements — not slogans.</p>
+                </div>
+                <ul class="why-list">
+                    <li class="why-item reveal">
+                        <span class="why-num">01</span>
+                        <div>
+                            <h4>Built around the actual business goal</h4>
+                            <p>Every project starts with the outcome you want — then we design backwards from there.</p>
+                        </div>
+                    </li>
+                    <li class="why-item reveal">
+                        <span class="why-num">02</span>
+                        <div>
+                            <h4>Real work instead of template demos</h4>
+                            <p>You see actual delivered projects — not polished mockups that never went live.</p>
+                        </div>
+                    </li>
+                    <li class="why-item reveal">
+                        <span class="why-num">03</span>
+                        <div>
+                            <h4>Design + technology in one workflow</h4>
+                            <p>Web, content and AI built together so the final experience actually feels unified.</p>
+                        </div>
+                    </li>
+                    <li class="why-item reveal">
+                        <span class="why-num">04</span>
+                        <div>
+                            <h4>Focused on useful outcomes</h4>
+                            <p>No bloated features. Just the things that move the business forward.</p>
+                        </div>
+                    </li>
+                    <li class="why-item reveal">
+                        <span class="why-num">05</span>
+                        <div>
+                            <h4>Clear communication</h4>
+                            <p>Direct updates, no jargon, and a shared understanding of what we're shipping.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CONTACT / CTA -->
+        <section class="section section-contact" id="contact">
+            <div class="container contact-inner">
+                <div class="contact-eyebrow reveal">— 08 / Contact</div>
+                <h2 class="contact-title reveal">
+                    Have a Project in Mind?
+                </h2>
+                <p class="contact-sub reveal">
+                    Tell me what you're building and let's figure out the right way to bring it to life.
+                </p>
+
+                <div class="contact-ctas reveal">
+                    <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-primary btn-xl">
+                        <span>Book a Call</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                    </a>
+                    <a href="mailto:info.abdullah1027@gmail.com" class="btn btn-ghost btn-xl">
+                        <span>Let's Talk</span>
+                    </a>
+                </div>
+
+                <div class="contact-meta reveal">
+                    <span class="cm-item"><span class="cm-dot"></span> Currently accepting projects for Q4 2026</span>
+                    <span class="cm-sep">·</span>
+                    <span class="cm-item">Replies within 24 hours</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="footer-name">Abdullah</div>
+                    <div class="footer-tag">Digital <span class="ft-sep">•</span> Creative <span class="ft-sep">•</span> AI</div>
+                </div>
+                <nav class="footer-links" aria-label="Footer">
+                    <a href="#work">Work</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="footer-cta">Book a Call →</a>
+                </nav>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Abdullah. All rights reserved.</span>
+                <span class="footer-loc">Based in Pakistan · Working Worldwide</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VIDEO MODAL -->
+    <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+        <div class="modal-backdrop" data-close></div>
+        <div class="modal-frame">
+            <button class="modal-close" data-close aria-label="Close video">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <div class="modal-video" id="modalVideo"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

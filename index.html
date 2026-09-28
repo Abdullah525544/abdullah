@@ -72,6 +72,40 @@
 
     <main id="top">
 
+        <!-- SCROLL PROGRESS DIAGRAM (home only) -->
+        <aside class="scroll-progress" id="scrollProgress" aria-hidden="true">
+            <div class="sp-track">
+                <div class="sp-fill" id="spFill"></div>
+            </div>
+            <ol class="sp-markers">
+                <li class="sp-marker" data-section="featured" data-label="Selected Work">
+                    <span class="sp-dot"></span>
+                    <span class="sp-num">01</span>
+                    <span class="sp-label">Selected Work</span>
+                </li>
+                <li class="sp-marker" data-section="ugc" data-label="UGC">
+                    <span class="sp-dot"></span>
+                    <span class="sp-num">02</span>
+                    <span class="sp-label">UGC</span>
+                </li>
+                <li class="sp-marker" data-section="services" data-label="Services">
+                    <span class="sp-dot"></span>
+                    <span class="sp-num">03</span>
+                    <span class="sp-label">Services</span>
+                </li>
+                <li class="sp-marker" data-section="about" data-label="About">
+                    <span class="sp-dot"></span>
+                    <span class="sp-num">04</span>
+                    <span class="sp-label">About</span>
+                </li>
+                <li class="sp-marker" data-section="cta" data-label="Contact">
+                    <span class="sp-dot"></span>
+                    <span class="sp-num">05</span>
+                    <span class="sp-label">Contact</span>
+                </li>
+            </ol>
+        </aside>
+
         <!-- HERO -->
         <section class="hero">
             <div class="container hero-inner">
@@ -151,7 +185,7 @@
         </section>
 
         <!-- FEATURED WORK -->
-        <section class="section section-featured">
+        <section class="section section-featured" id="featured">
             <div class="container">
                 <div class="section-head">
                     <div class="section-eyebrow reveal">— 01 / Featured Work</div>
@@ -162,7 +196,7 @@
                 <div class="featured-grid">
                     <article class="featured-card featured-large reveal" data-video-id="MEr43Q2GdkM" data-category="websites">
                         <div class="thumb">
-                            <img src="https://i.ytimg.com/vi/MEr43Q2GdkM/hqdefault.jpg" alt="Precision Focused Healthcare website preview" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/MEr43Q2GdkM/maxresdefault.jpg" alt="Precision Focused Healthcare website preview" loading="lazy" />
                             <button class="play-btn" aria-label="Play video">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -177,7 +211,7 @@
 
                     <article class="featured-card reveal" data-video-id="wIqwLIjSB2E" data-category="websites">
                         <div class="thumb">
-                            <img src="https://i.ytimg.com/vi/wIqwLIjSB2E/hqdefault.jpg" alt="Mindful check-in app preview" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/wIqwLIjSB2E/maxresdefault.jpg" alt="Mindful check-in app preview" loading="lazy" />
                             <button class="play-btn" aria-label="Play video">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -192,7 +226,7 @@
 
                     <article class="featured-card reveal" data-video-id="r1W2g3Y0JAk" data-category="ai">
                         <div class="thumb">
-                            <img src="https://i.ytimg.com/vi/r1W2g3Y0JAk/hqdefault.jpg" alt="AI Voice Agent demo preview" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/r1W2g3Y0JAk/maxresdefault.jpg" alt="AI Voice Agent demo preview" loading="lazy" />
                             <button class="play-btn" aria-label="Play video">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -207,7 +241,7 @@
 
                     <article class="featured-card reveal" data-video-id="6DBikSIOahQ" data-category="ai">
                         <div class="thumb">
-                            <img src="https://i.ytimg.com/vi/6DBikSIOahQ/hqdefault.jpg" alt="AI Receptionist demo preview" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/6DBikSIOahQ/maxresdefault.jpg" alt="AI Receptionist demo preview" loading="lazy" />
                             <button class="play-btn" aria-label="Play video">
                                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -224,7 +258,7 @@
         </section>
 
         <!-- FEATURED UGC -->
-        <section class="section section-featured-ugc">
+        <section class="section section-featured-ugc" id="ugc">
             <div class="container">
                 <div class="section-head">
                     <div class="section-eyebrow reveal">— 02 / UGC Direction</div>
@@ -235,7 +269,7 @@
                 <div class="ugc-featured-row">
                     <article class="ugc-featured reveal" data-video-id="7E-zWxOlALw" data-category="ugc">
                         <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/7E-zWxOlALw/hqdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/7E-zWxOlALw/maxresdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
                             <button class="play-btn small" aria-label="Play video">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -245,7 +279,7 @@
 
                     <article class="ugc-featured reveal" data-video-id="uk0Egv4TspY" data-category="ugc">
                         <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/uk0Egv4TspY/hqdefault.jpg" alt="Skincare UGC video" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/uk0Egv4TspY/maxresdefault.jpg" alt="Skincare UGC video" loading="lazy" />
                             <button class="play-btn small" aria-label="Play video">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -253,9 +287,9 @@
                         <span class="ugc-tag">Skincare</span>
                     </article>
 
-                    <article class="ugc-featured reveal" data-video-id="XOl3vkg-HM8" data-category="ugc">
+                    <article class="ugc-featured reveal" data-video-id="NwsMC_wqVPM" data-category="ugc">
                         <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/XOl3vkg-HM8/hqdefault.jpg" alt="Watch product video" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/NwsMC_wqVPM/maxresdefault.jpg" alt="Watch product video" loading="lazy" />
                             <button class="play-btn small" aria-label="Play video">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -265,7 +299,7 @@
 
                     <article class="ugc-featured reveal" data-video-id="UWed2OYzINY" data-category="ugc">
                         <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/UWed2OYzINY/hqdefault.jpg" alt="Fragrance product video" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/UWed2OYzINY/maxresdefault.jpg" alt="Fragrance product video" loading="lazy" />
                             <button class="play-btn small" aria-label="Play video">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -275,7 +309,7 @@
 
                     <article class="ugc-featured reveal" data-video-id="osmQ1uB2PzE" data-category="ugc">
                         <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/osmQ1uB2PzE/hqdefault.jpg" alt="Product ad video" loading="lazy" />
+                            <img src="https://i.ytimg.com/vi/osmQ1uB2PzE/maxresdefault.jpg" alt="Product ad video" loading="lazy" />
                             <button class="play-btn small" aria-label="Play video">
                                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
                             </button>
@@ -287,7 +321,7 @@
         </section>
 
         <!-- SERVICES PREVIEW -->
-        <section class="section section-services-preview">
+        <section class="section section-services-preview" id="services">
             <div class="container">
                 <div class="section-head">
                     <div class="section-eyebrow reveal">— 03 / What I Build</div>
@@ -321,7 +355,7 @@
         </section>
 
         <!-- ABOUT SNIPPET -->
-        <section class="section section-about-snippet">
+        <section class="section section-about-snippet" id="about">
             <div class="container snippet-inner">
                 <div class="snippet-text reveal">
                     <div class="section-eyebrow">— 04 / About</div>
@@ -351,7 +385,7 @@
         </section>
 
         <!-- CTA -->
-        <section class="section section-cta">
+        <section class="section section-cta" id="cta">
             <div class="container cta-inner">
                 <div class="cta-eyebrow reveal">— 05 / Get in touch</div>
                 <h2 class="cta-title reveal">Have a Project in Mind?</h2>

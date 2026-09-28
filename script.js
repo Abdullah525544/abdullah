@@ -351,4 +351,62 @@
         }
     });
 
+    /* ---------- Scroll progress diagram (home page only) ---------- */
+    const scrollProgress = document.getElementById('scrollProgress');
+    if (scrollProgress) {
+        const spFill = document.getElementById('spFill');
+        const spMarkers = scrollProgress.querySelectorAll('.sp-marker');
+        const trackedSections = Array.from(spMarkers).map(m => {
+            const id = m.dataset.section;
+            const el = document.getElementById(id);
+            return el ? { id, el, marker: m } : null;
+        }).filter(Boolean);
+
+        // Click a marker → smooth scroll to its section
+        spMarkers.forEach(marker => {
+            marker.addEventListener('click', () => {
+                const id = marker.dataset.section;
+                const target = document.getElementById(id);
+                if (target) {
+                    const top = target.getBoundingClientRect().top + window.scrollY - 80;
+                    window.scrollTo({ top, behavior: prefersReduced ? 'auto' : 'smooth' });
+                }
+            });
+        });
+
+        // Update on scroll
+        let spTicking = false;
+        const updateProgress = () => {
+            spTicking = false;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+            if (spFill) spFill.style.height = Math.min(100, Math.max(0, pct)) + '%';
+
+            // Determine which section is currently in view
+            const viewportMid = window.scrollY + window.innerHeight * 0.4;
+            let activeId = null;
+            trackedSections.forEach(({ id, el }) => {
+                const top = el.offsetTop;
+                const bottom = top + el.offsetHeight;
+                if (viewportMid >= top && viewportMid < bottom) activeId = id;
+            });
+
+            spMarkers.forEach(m => {
+                m.classList.toggle('is-active', m.dataset.section === activeId);
+            });
+
+            // Show indicator once user scrolls past hero
+            if (window.scrollY > 200) scrollProgress.classList.add('is-visible');
+            else scrollProgress.classList.remove('is-visible');
+        };
+
+        window.addEventListener('scroll', () => {
+            if (!spTicking) {
+                requestAnimationFrame(updateProgress);
+                spTicking = true;
+            }
+        }, { passive: true });
+        updateProgress();
+    }
+
 })();

@@ -29,11 +29,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
+    <!-- GSAP + ScrollTrigger (animation engine for pinned sections, horizontal scroll, line draw, etc.) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
     <div class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- Cursor micro-label (only on desktop) -->
+    <div class="cursor-label" id="cursorLabel" aria-hidden="true">
+        <span class="cursor-label-text">View</span>
+    </div>
 
     <!-- Navigation -->
     <header class="nav" id="nav">
@@ -72,61 +81,67 @@
 
     <main id="top">
 
-        <!-- SCROLL PROGRESS DIAGRAM (home only) -->
+        <!-- SCROLL PROGRESS DIAGRAM -->
         <aside class="scroll-progress" id="scrollProgress" aria-hidden="true">
             <div class="sp-track">
                 <div class="sp-fill" id="spFill"></div>
             </div>
             <ol class="sp-markers">
-                <li class="sp-marker" data-section="featured" data-label="Selected Work">
-                    <span class="sp-dot"></span>
-                    <span class="sp-num">01</span>
-                    <span class="sp-label">Selected Work</span>
-                </li>
-                <li class="sp-marker" data-section="ugc" data-label="UGC">
-                    <span class="sp-dot"></span>
-                    <span class="sp-num">02</span>
-                    <span class="sp-label">UGC</span>
-                </li>
-                <li class="sp-marker" data-section="services" data-label="Services">
-                    <span class="sp-dot"></span>
-                    <span class="sp-num">03</span>
-                    <span class="sp-label">Services</span>
-                </li>
-                <li class="sp-marker" data-section="about" data-label="About">
-                    <span class="sp-dot"></span>
-                    <span class="sp-num">04</span>
-                    <span class="sp-label">About</span>
-                </li>
-                <li class="sp-marker" data-section="cta" data-label="Contact">
-                    <span class="sp-dot"></span>
-                    <span class="sp-num">05</span>
-                    <span class="sp-label">Contact</span>
-                </li>
+                <li class="sp-marker" data-section="manifesto" data-label="Manifesto"><span class="sp-dot"></span><span class="sp-num">01</span><span class="sp-label">Manifesto</span></li>
+                <li class="sp-marker" data-section="capabilities" data-label="Capabilities"><span class="sp-dot"></span><span class="sp-num">02</span><span class="sp-label">Capabilities</span></li>
+                <li class="sp-marker" data-section="featured" data-label="Selected Work"><span class="sp-dot"></span><span class="sp-num">03</span><span class="sp-label">Selected Work</span></li>
+                <li class="sp-marker" data-section="showcase" data-label="Showcase"><span class="sp-dot"></span><span class="sp-num">04</span><span class="sp-label">Showcase</span></li>
+                <li class="sp-marker" data-section="ugc" data-label="UGC Reel"><span class="sp-dot"></span><span class="sp-num">05</span><span class="sp-label">UGC Reel</span></li>
+                <li class="sp-marker" data-section="think" data-label="How I Think"><span class="sp-dot"></span><span class="sp-num">06</span><span class="sp-label">How I Think</span></li>
+                <li class="sp-marker" data-section="ai-system" data-label="AI System"><span class="sp-dot"></span><span class="sp-num">07</span><span class="sp-label">AI System</span></li>
+                <li class="sp-marker" data-section="services" data-label="Services"><span class="sp-dot"></span><span class="sp-num">08</span><span class="sp-label">Services</span></li>
+                <li class="sp-marker" data-section="toolkit" data-label="Toolkit"><span class="sp-dot"></span><span class="sp-num">09</span><span class="sp-label">Toolkit</span></li>
+                <li class="sp-marker" data-section="about" data-label="About"><span class="sp-dot"></span><span class="sp-num">10</span><span class="sp-label">About</span></li>
+                <li class="sp-marker" data-section="cta" data-label="Contact"><span class="sp-dot"></span><span class="sp-num">11</span><span class="sp-label">Contact</span></li>
             </ol>
         </aside>
 
-        <!-- HERO -->
-        <section class="hero">
+        <!-- ============================================
+             01 / HERO — with editorial annotations
+        ============================================ -->
+        <section class="hero" id="hero">
+            <!-- Editorial annotations (design-system marks, not sci-fi) -->
+            <div class="hero-annotation hero-ann-top" aria-hidden="true">
+                <span class="ann-label">01 / Hero</span>
+            </div>
+            <div class="hero-annotation hero-ann-coords" aria-hidden="true">
+                <span class="ann-line"></span>
+                <span class="ann-label">N 31.5° / E 74.3°</span>
+            </div>
+            <div class="hero-annotation hero-ann-dot" aria-hidden="true">
+                <span class="ann-dot"></span>
+                <span class="ann-label">PK · Remote</span>
+            </div>
+            <div class="hero-annotation hero-ann-mark" aria-hidden="true">
+                <span class="ann-cross"></span>
+                <span class="ann-label">2026</span>
+            </div>
+
             <div class="container hero-inner">
                 <div class="hero-text">
                     <div class="eyebrow reveal" data-reveal-delay="0">
                         <span class="eyebrow-dot"></span>
-                        DIGITAL <span class="eyebrow-sep">•</span> CREATIVE <span class="eyebrow-sep">•</span> AI
+                        DIGITAL <span class="eyebrow-sep">/</span> CREATIVE <span class="eyebrow-sep">/</span> AI
                     </div>
 
                     <h1 class="hero-title reveal" data-reveal-delay="120">
-                        Building Digital Experiences<br />
-                        That <span class="hl">Look Good.</span><br />
-                        And <span class="hl-soft">Work Hard.</span>
+                        I Build Digital<br />
+                        Experiences That<br />
+                        <span class="hl">Look Good</span> <span class="hl-amp">and</span><br />
+                        <span class="hl-soft">Work Hard.</span>
                     </h1>
 
                     <p class="hero-sub reveal" data-reveal-delay="260">
-                        I help businesses turn ideas into polished digital experiences — from high-converting websites and UGC content to AI automation and custom business systems.
+                        I design websites, create UGC content and build practical AI systems for businesses.
                     </p>
 
                     <div class="hero-ctas reveal" data-reveal-delay="420">
-                        <a href="work.html" class="btn btn-primary btn-lg">
+                        <a href="#showcase" class="btn btn-primary btn-lg">
                             <span>View My Work</span>
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
                         </a>
@@ -148,11 +163,10 @@
                     </div>
                 </div>
 
-                <div class="hero-portrait reveal-portrait">
+                <div class="hero-portrait reveal-portrait" data-parallax="0.4">
                     <div class="portrait-wrap">
-                        <div class="portrait-ring"></div>
+                        <div class="portrait-ring" aria-hidden="true"></div>
                         <img src="assets/profile.png" alt="Portrait of Abdullah" class="portrait-img" loading="eager" />
-                        <div class="portrait-glow" aria-hidden="true"></div>
                     </div>
                     <div class="portrait-meta">
                         <span class="meta-line"></span>
@@ -161,6 +175,14 @@
                 </div>
             </div>
 
+            <!-- Scroll typography (BUILD. → BUILD DIGITAL → BUILD DIGITAL EXPERIENCES) -->
+            <div class="hero-scrolltype" aria-hidden="true">
+                <span class="st-text" data-st="0">Build.</span>
+                <span class="st-text" data-st="1">Build digital.</span>
+                <span class="st-text" data-st="2">Build digital experiences.</span>
+            </div>
+
+            <!-- Marquee (kept, but tightened) -->
             <div class="hero-marquee" aria-hidden="true">
                 <div class="marquee-track">
                     <span>Website Creation</span><span>·</span>
@@ -184,22 +206,119 @@
             </div>
         </section>
 
-        <!-- FEATURED WORK -->
+        <!-- ============================================
+             02 / MANIFESTO — line-by-line reveal
+        ============================================ -->
+        <section class="section section-manifesto" id="manifesto">
+            <div class="container">
+                <div class="manifesto-eyebrow reveal">— 02 / Manifesto</div>
+                <h2 class="manifesto-title">
+                    <span class="m-line"><span>Good design</span></span>
+                    <span class="m-line"><span>isn't just about</span></span>
+                    <span class="m-line"><span class="m-italic">how something</span></span>
+                    <span class="m-line"><span class="m-italic">looks.</span></span>
+                    <span class="m-line m-break"><span>It's about</span></span>
+                    <span class="m-line"><span class="m-strong">what it does.</span></span>
+                </h2>
+
+                <div class="manifesto-tags reveal">
+                    <span class="m-tag">Design</span>
+                    <span class="m-tag">Technology</span>
+                    <span class="m-tag">Content</span>
+                    <span class="m-tag">Automation</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             03 / CAPABILITIES — sticky pinned (desktop)
+        ============================================ -->
+        <section class="section section-capabilities" id="capabilities">
+            <div class="container">
+                <div class="cap-head">
+                    <div class="section-eyebrow reveal">— 03 / Capabilities</div>
+                    <h2 class="section-title reveal">What I Work Across</h2>
+                </div>
+
+                <div class="cap-pin">
+                    <div class="cap-left">
+                        <ol class="cap-list">
+                            <li class="cap-row is-active" data-cap="web">
+                                <span class="cap-no">01</span>
+                                <span class="cap-name">Web</span>
+                                <span class="cap-arrow">→</span>
+                            </li>
+                            <li class="cap-row" data-cap="content">
+                                <span class="cap-no">02</span>
+                                <span class="cap-name">Content</span>
+                                <span class="cap-arrow">→</span>
+                            </li>
+                            <li class="cap-row" data-cap="ai">
+                                <span class="cap-no">03</span>
+                                <span class="cap-name">AI</span>
+                                <span class="cap-arrow">→</span>
+                            </li>
+                            <li class="cap-row" data-cap="growth">
+                                <span class="cap-no">04</span>
+                                <span class="cap-name">Growth</span>
+                                <span class="cap-arrow">→</span>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="cap-right">
+                        <div class="cap-panel is-active" data-panel="web">
+                            <div class="cap-preview">
+                                <img src="https://i.ytimg.com/vi/MEr43Q2GdkM/maxresdefault.jpg" alt="Web design preview" loading="lazy" />
+                                <span class="cap-overlay-label">Website Preview</span>
+                            </div>
+                            <h3>Web Design</h3>
+                            <p>Modern websites designed around the brand, user experience and business goal. Landing pages, business sites and portfolios.</p>
+                        </div>
+                        <div class="cap-panel" data-panel="content">
+                            <div class="cap-preview">
+                                <img src="https://i.ytimg.com/vi/uk0Egv4TspY/maxresdefault.jpg" alt="UGC content preview" loading="lazy" />
+                                <span class="cap-overlay-label">UGC Vertical</span>
+                            </div>
+                            <h3>UGC &amp; Product Content</h3>
+                            <p>Short-form product content designed to feel native in the feed. Hair care, skincare, watch, fragrance and product verticals.</p>
+                        </div>
+                        <div class="cap-panel" data-panel="ai">
+                            <div class="cap-preview">
+                                <img src="https://i.ytimg.com/vi/r1W2g3Y0JAk/maxresdefault.jpg" alt="AI Voice Agent preview" loading="lazy" />
+                                <span class="cap-overlay-label">AI Voice Agent</span>
+                            </div>
+                            <h3>AI Systems</h3>
+                            <p>Practical AI workflows — voice agents, CRM logic, n8n automation — built to reduce repetitive work.</p>
+                        </div>
+                        <div class="cap-panel" data-panel="growth">
+                            <div class="cap-preview">
+                                <img src="https://i.ytimg.com/vi/4Xgy7b65lpg/maxresdefault.jpg" alt="CRM and Growth preview" loading="lazy" />
+                                <span class="cap-overlay-label">CRM &amp; Growth</span>
+                            </div>
+                            <h3>Growth &amp; Marketing</h3>
+                            <p>Digital marketing with AI — performance content, ad-ready creative and systems that compound.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             04 / SELECTED WORK
+        ============================================ -->
         <section class="section section-featured" id="featured">
             <div class="container">
                 <div class="section-head">
-                    <div class="section-eyebrow reveal">— 01 / Featured Work</div>
-                    <h2 class="section-title reveal">Selected Pieces</h2>
-                    <p class="section-sub reveal">A curated set from recent projects. <a href="work.html" class="text-link-inline">See all 19 projects →</a></p>
+                    <div class="section-eyebrow reveal">— 04 / Selected Work</div>
+                    <h2 class="section-title reveal">Real projects. Built.</h2>
+                    <p class="section-sub reveal">A curated set from recent projects across websites, content and AI. <a href="work.html" class="text-link-inline">See all 19 projects →</a></p>
                 </div>
 
                 <div class="featured-grid">
                     <article class="featured-card featured-large reveal" data-video-id="MEr43Q2GdkM" data-category="websites">
                         <div class="thumb">
                             <img src="https://i.ytimg.com/vi/MEr43Q2GdkM/maxresdefault.jpg" alt="Precision Focused Healthcare website preview" loading="lazy" />
-                            <button class="play-btn" aria-label="Play video">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                             <div class="thumb-overlay"></div>
                         </div>
                         <div class="featured-meta">
@@ -212,9 +331,7 @@
                     <article class="featured-card reveal" data-video-id="wIqwLIjSB2E" data-category="websites">
                         <div class="thumb">
                             <img src="https://i.ytimg.com/vi/wIqwLIjSB2E/maxresdefault.jpg" alt="Mindful check-in app preview" loading="lazy" />
-                            <button class="play-btn" aria-label="Play video">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                             <div class="thumb-overlay"></div>
                         </div>
                         <div class="featured-meta">
@@ -227,9 +344,7 @@
                     <article class="featured-card reveal" data-video-id="r1W2g3Y0JAk" data-category="ai">
                         <div class="thumb">
                             <img src="https://i.ytimg.com/vi/r1W2g3Y0JAk/maxresdefault.jpg" alt="AI Voice Agent demo preview" loading="lazy" />
-                            <button class="play-btn" aria-label="Play video">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                             <div class="thumb-overlay"></div>
                         </div>
                         <div class="featured-meta">
@@ -242,9 +357,7 @@
                     <article class="featured-card reveal" data-video-id="6DBikSIOahQ" data-category="ai">
                         <div class="thumb">
                             <img src="https://i.ytimg.com/vi/6DBikSIOahQ/maxresdefault.jpg" alt="AI Receptionist demo preview" loading="lazy" />
-                            <button class="play-btn" aria-label="Play video">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                             <div class="thumb-overlay"></div>
                         </div>
                         <div class="featured-meta">
@@ -257,145 +370,415 @@
             </div>
         </section>
 
-        <!-- FEATURED UGC -->
-        <section class="section section-featured-ugc" id="ugc">
+        <!-- ============================================
+             05 / WEBSITE SHOWCASE — horizontal scroll
+        ============================================ -->
+        <section class="section section-showcase" id="showcase">
             <div class="container">
                 <div class="section-head">
-                    <div class="section-eyebrow reveal">— 02 / UGC Direction</div>
-                    <h2 class="section-title reveal">Content That Feels Native</h2>
-                    <p class="section-sub reveal">Short-form product content designed to feel natural in the feed. <a href="work.html#ugc" class="text-link-inline">See all 11 videos →</a></p>
+                    <div class="section-eyebrow reveal">— 05 / Website Showcase</div>
+                    <h2 class="section-title reveal">Scroll through the work.</h2>
+                    <p class="section-sub reveal">A horizontal scroll through five website projects. Drag, scroll, or use the arrow keys.</p>
                 </div>
+            </div>
 
-                <div class="ugc-featured-row">
-                    <article class="ugc-featured reveal" data-video-id="7E-zWxOlALw" data-category="ugc">
-                        <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/7E-zWxOlALw/maxresdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
-                            <button class="play-btn small" aria-label="Play video">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+            <div class="showcase-pin">
+                <div class="showcase-track" id="showcaseTrack">
+                    <article class="showcase-card" data-video-id="MEr43Q2GdkM">
+                        <div class="showcase-preview">
+                            <img src="https://i.ytimg.com/vi/MEr43Q2GdkM/maxresdefault.jpg" alt="Precision Focused Healthcare preview" loading="lazy" />
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                         </div>
-                        <span class="ugc-tag">Hair Care</span>
+                        <div class="showcase-meta">
+                            <span class="showcase-cat">Website · 01</span>
+                            <h3 class="showcase-title">Precision Focused Healthcare</h3>
+                            <span class="showcase-link">View project →</span>
+                        </div>
                     </article>
-
-                    <article class="ugc-featured reveal" data-video-id="uk0Egv4TspY" data-category="ugc">
-                        <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/uk0Egv4TspY/maxresdefault.jpg" alt="Skincare UGC video" loading="lazy" />
-                            <button class="play-btn small" aria-label="Play video">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                    <article class="showcase-card" data-video-id="wIqwLIjSB2E">
+                        <div class="showcase-preview">
+                            <img src="https://i.ytimg.com/vi/wIqwLIjSB2E/maxresdefault.jpg" alt="Mindful check-in app preview" loading="lazy" />
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                         </div>
-                        <span class="ugc-tag">Skincare</span>
+                        <div class="showcase-meta">
+                            <span class="showcase-cat">Website · 02</span>
+                            <h3 class="showcase-title">Mindful — Daily Check-In</h3>
+                            <span class="showcase-link">View project →</span>
+                        </div>
                     </article>
-
-                    <article class="ugc-featured reveal" data-video-id="NwsMC_wqVPM" data-category="ugc">
-                        <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/NwsMC_wqVPM/maxresdefault.jpg" alt="Watch product video" loading="lazy" />
-                            <button class="play-btn small" aria-label="Play video">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                    <article class="showcase-card" data-video-id="In9nWHJ5Gxw">
+                        <div class="showcase-preview">
+                            <img src="https://i.ytimg.com/vi/In9nWHJ5Gxw/maxresdefault.jpg" alt="Website Project 01 preview" loading="lazy" />
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                         </div>
-                        <span class="ugc-tag">Watch</span>
+                        <div class="showcase-meta">
+                            <span class="showcase-cat">Website · 03</span>
+                            <h3 class="showcase-title">Website Project 01</h3>
+                            <span class="showcase-link">View project →</span>
+                        </div>
                     </article>
-
-                    <article class="ugc-featured reveal" data-video-id="UWed2OYzINY" data-category="ugc">
-                        <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/UWed2OYzINY/maxresdefault.jpg" alt="Fragrance product video" loading="lazy" />
-                            <button class="play-btn small" aria-label="Play video">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                    <article class="showcase-card" data-video-id="USwXixnEe1k">
+                        <div class="showcase-preview">
+                            <img src="https://i.ytimg.com/vi/USwXixnEe1k/maxresdefault.jpg" alt="Website Project 02 preview" loading="lazy" />
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                         </div>
-                        <span class="ugc-tag">Fragrance</span>
+                        <div class="showcase-meta">
+                            <span class="showcase-cat">Website · 04</span>
+                            <h3 class="showcase-title">Website Project 02</h3>
+                            <span class="showcase-link">View project →</span>
+                        </div>
                     </article>
-
-                    <article class="ugc-featured reveal" data-video-id="osmQ1uB2PzE" data-category="ugc">
-                        <div class="ugc-thumb">
-                            <img src="https://i.ytimg.com/vi/osmQ1uB2PzE/maxresdefault.jpg" alt="Product ad video" loading="lazy" />
-                            <button class="play-btn small" aria-label="Play video">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                            </button>
+                    <article class="showcase-card" data-video-id="wR4eg1iAATs">
+                        <div class="showcase-preview">
+                            <img src="https://i.ytimg.com/vi/wR4eg1iAATs/maxresdefault.jpg" alt="Website Project 05 preview" loading="lazy" />
+                            <button class="play-btn" aria-label="Play video"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
                         </div>
-                        <span class="ugc-tag">Product Ad</span>
+                        <div class="showcase-meta">
+                            <span class="showcase-cat">Website · 05</span>
+                            <h3 class="showcase-title">Website Project 05</h3>
+                            <span class="showcase-link">View project →</span>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- SERVICES PREVIEW -->
-        <section class="section section-services-preview" id="services">
+        <!-- ============================================
+             06 / UGC REEL WALL — asymmetric + parallax
+        ============================================ -->
+        <section class="section section-ugc-reel" id="ugc">
             <div class="container">
                 <div class="section-head">
-                    <div class="section-eyebrow reveal">— 03 / What I Build</div>
-                    <h2 class="section-title reveal">Three Focused Practices</h2>
-                    <p class="section-sub reveal">Design, content and automation — delivered as one cohesive workflow.</p>
+                    <div class="section-eyebrow reveal">— 06 / UGC Direction</div>
+                    <h2 class="section-title reveal">Content made for the feed.</h2>
+                    <p class="section-sub reveal">Short-form product content designed to feel native while keeping the product at the center. <a href="work.html#ugc" class="text-link-inline">See all 11 videos →</a></p>
+                </div>
+            </div>
+
+            <div class="ugc-reel">
+                <div class="ugc-reel-track" id="ugcReelTrack">
+                    <div class="ugc-reel-col ugc-reel-col-1">
+                        <article class="ugc-reel-item ugc-reel-tall reveal" data-video-id="7E-zWxOlALw" data-parallax-speed="0.25">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/7E-zWxOlALw/maxresdefault.jpg" alt="Hair oil UGC" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Hair Care · 01</span>
+                        </article>
+                        <article class="ugc-reel-item reveal" data-video-id="XOl3vkg-HM8" data-parallax-speed="0.05">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/XOl3vkg-HM8/maxresdefault.jpg" alt="Watch product" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Watch · 02</span>
+                        </article>
+                        <article class="ugc-reel-item reveal" data-video-id="5fAPOmSdLy0" data-parallax-speed="0.18">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/5fAPOmSdLy0/maxresdefault.jpg" alt="Fragrance product" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Fragrance · 03</span>
+                        </article>
+                    </div>
+                    <div class="ugc-reel-col ugc-reel-col-2">
+                        <article class="ugc-reel-item reveal" data-video-id="uk0Egv4TspY" data-parallax-speed="0.10">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/uk0Egv4TspY/maxresdefault.jpg" alt="Skincare UGC" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Skincare · 01</span>
+                        </article>
+                        <article class="ugc-reel-item ugc-reel-tall reveal" data-video-id="NwsMC_wqVPM" data-parallax-speed="0.30">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/NwsMC_wqVPM/maxresdefault.jpg" alt="Watch featured" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Watch · 01</span>
+                        </article>
+                        <article class="ugc-reel-item reveal" data-video-id="cH_I_RODHzE" data-parallax-speed="0.08">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/cH_I_RODHzE/maxresdefault.jpg" alt="Product ad" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Product Ad · 02</span>
+                        </article>
+                    </div>
+                    <div class="ugc-reel-col ugc-reel-col-3">
+                        <article class="ugc-reel-item reveal" data-video-id="nNY83tZYHNg" data-parallax-speed="0.12">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/nNY83tZYHNg/maxresdefault.jpg" alt="Hair oil" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Hair Care · 02</span>
+                        </article>
+                        <article class="ugc-reel-item reveal" data-video-id="4ZG2_j5i7nk" data-parallax-speed="0.06">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/4ZG2_j5i7nk/maxresdefault.jpg" alt="Watch product" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Watch · 03</span>
+                        </article>
+                        <article class="ugc-reel-item reveal" data-video-id="UWed2OYzINY" data-parallax-speed="0.22">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/UWed2OYzINY/maxresdefault.jpg" alt="Fragrance" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Fragrance · 01</span>
+                        </article>
+                        <article class="ugc-reel-item reveal" data-video-id="osmQ1uB2PzE" data-parallax-speed="0.14">
+                            <div class="ugc-reel-thumb"><img src="https://i.ytimg.com/vi/osmQ1uB2PzE/maxresdefault.jpg" alt="Product ad" loading="lazy" /></div>
+                            <span class="ugc-reel-tag">Product Ad · 01</span>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             07 / HOW I THINK — animated process diagram
+        ============================================ -->
+        <section class="section section-think" id="think">
+            <div class="container">
+                <div class="think-head">
+                    <div class="section-eyebrow reveal">— 07 / How I Think</div>
+                    <h2 class="think-title reveal">
+                        I don't start<br />
+                        with the tool.<br />
+                        I start with<br />
+                        the <span class="think-italic">problem.</span>
+                    </h2>
                 </div>
 
-                <div class="services-preview-grid">
-                    <article class="service-preview reveal">
-                        <span class="service-no">01</span>
-                        <h3>Website Creation</h3>
-                        <p>Modern websites designed around the brand, user experience and business goal.</p>
-                        <a href="services.html#websites" class="service-preview-link">Learn more →</a>
-                    </article>
+                <div class="think-diagram">
+                    <svg class="think-svg" id="thinkSvg" viewBox="0 0 900 720" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                        <line class="td-line" x1="80" y1="60" x2="80" y2="660" />
+                        <line class="td-line-fill" x1="80" y1="60" x2="80" y2="660" />
+                        <circle class="td-pulse" cx="80" cy="60" r="5" />
 
-                    <article class="service-preview reveal">
-                        <span class="service-no">02</span>
-                        <h3>UGC &amp; Product Videos</h3>
-                        <p>Short-form content designed for social media, products and paid advertising.</p>
-                        <a href="services.html#ugc" class="service-preview-link">Learn more →</a>
-                    </article>
+                        <g class="td-node" data-node="1">
+                            <circle class="td-co" cx="80" cy="60" r="14" />
+                            <text class="td-no" x="80" y="65" text-anchor="middle">01</text>
+                            <text class="td-label" x="120" y="55">Problem</text>
+                            <text class="td-desc" x="120" y="76">Define the actual problem.</text>
+                        </g>
+                        <g class="td-node" data-node="2">
+                            <circle class="td-co" cx="80" cy="170" r="14" />
+                            <text class="td-no" x="80" y="175" text-anchor="middle">02</text>
+                            <text class="td-label" x="120" y="165">Research</text>
+                            <text class="td-desc" x="120" y="186">Audience, market, references.</text>
+                        </g>
+                        <g class="td-node" data-node="3">
+                            <circle class="td-co" cx="80" cy="280" r="14" />
+                            <text class="td-no" x="80" y="285" text-anchor="middle">03</text>
+                            <text class="td-label" x="120" y="275">Strategy</text>
+                            <text class="td-desc" x="120" y="296">Pick the right path.</text>
+                        </g>
+                        <g class="td-node" data-node="4">
+                            <circle class="td-co" cx="80" cy="390" r="14" />
+                            <text class="td-no" x="80" y="395" text-anchor="middle">04</text>
+                            <text class="td-label" x="120" y="385">Design</text>
+                            <text class="td-desc" x="120" y="406">System, type, motion.</text>
+                        </g>
+                        <g class="td-node" data-node="5">
+                            <circle class="td-co" cx="80" cy="500" r="14" />
+                            <text class="td-no" x="80" y="505" text-anchor="middle">05</text>
+                            <text class="td-label" x="120" y="495">Build</text>
+                            <text class="td-desc" x="120" y="516">Ship the actual thing.</text>
+                        </g>
+                        <g class="td-node" data-node="6">
+                            <circle class="td-co" cx="80" cy="610" r="14" />
+                            <text class="td-no" x="80" y="615" text-anchor="middle">06</text>
+                            <text class="td-label" x="120" y="605">Refine</text>
+                            <text class="td-desc" x="120" y="626">Improve and tighten.</text>
+                        </g>
+                        <g class="td-node" data-node="7">
+                            <circle class="td-co td-co-final" cx="80" cy="700" r="14" />
+                            <text class="td-no" x="80" y="705" text-anchor="middle">07</text>
+                            <text class="td-label td-label-final" x="120" y="695">Result</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </section>
 
-                    <article class="service-preview reveal">
-                        <span class="service-no">03</span>
-                        <h3>AI Automation</h3>
-                        <p>Practical AI systems that automate repetitive business workflows.</p>
-                        <a href="services.html#ai" class="service-preview-link">Learn more →</a>
+        <!-- ============================================
+             08 / AI AUTOMATION ARCHITECTURE — interactive
+        ============================================ -->
+        <section class="section section-ai-system" id="ai-system">
+            <div class="container">
+                <div class="ai-sys-head">
+                    <div class="section-eyebrow reveal">— 08 / AI System</div>
+                    <h2 class="section-title reveal">From idea<br />to automation.</h2>
+                    <p class="section-sub reveal">A conceptual look at how an AI-powered business flow can be assembled — input, agent, logic, automation, CRM, action.</p>
+                </div>
+
+                <div class="ai-flow-wrap">
+                    <div class="ai-flow-stage">
+                        <svg class="ai-flow-svg" id="aiFlowSvg" viewBox="0 0 760 520" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                            <!-- Path connecting all nodes -->
+                            <path class="af-path" d="M 80 80 L 680 80 L 680 180 L 80 180 L 80 280 L 680 280 L 680 380 L 80 380 L 80 440" />
+                            <path class="af-path-fill" d="M 80 80 L 680 80 L 680 180 L 80 180 L 80 280 L 680 280 L 680 380 L 80 380 L 80 440" />
+                            <circle class="af-signal" r="4" />
+                        </svg>
+
+                        <div class="af-nodes">
+                            <div class="af-node" data-step="user" data-tip="The source — a website visitor, lead, or customer."><span>User</span></div>
+                            <div class="af-node" data-step="input" data-tip="The first signal — a form, message, or trigger event."><span>Input</span></div>
+                            <div class="af-node" data-step="agent" data-tip="Processes incoming data and decides the response."><span>AI Agent</span></div>
+                            <div class="af-node" data-step="logic" data-tip="Applies business rules and conditional logic."><span>Logic</span></div>
+                            <div class="af-node" data-step="automation" data-tip="Triggers actions based on the agent's decision."><span>Automation</span></div>
+                            <div class="af-node" data-step="crm" data-tip="Stores and organizes customer information."><span>CRM / DB</span></div>
+                            <div class="af-node" data-step="action" data-tip="Final action — reply, follow-up, alert, or task."><span>Action</span></div>
+                        </div>
+
+                        <div class="af-tooltip" id="afTooltip" aria-hidden="true">
+                            <span class="af-tooltip-title"></span>
+                            <span class="af-tooltip-desc"></span>
+                        </div>
+                    </div>
+
+                    <!-- Secondary flow (Lead → CRM) -->
+                    <div class="ai-flow-secondary">
+                        <h3 class="af-sec-title">Lead-to-CRM pipeline</h3>
+                        <div class="af-sec-track">
+                            <div class="af-sec-node" data-tip="A new inbound lead."><span>Lead</span></div>
+                            <div class="af-sec-arrow">→</div>
+                            <div class="af-sec-node" data-tip="Background check, qualification research."><span>Research</span></div>
+                            <div class="af-sec-arrow">→</div>
+                            <div class="af-sec-node" data-tip="Score and qualify the lead."><span>Qualify</span></div>
+                            <div class="af-sec-arrow">→</div>
+                            <div class="af-sec-node" data-tip="Outreach via email or chat."><span>Outreach</span></div>
+                            <div class="af-sec-arrow">→</div>
+                            <div class="af-sec-node" data-tip="Scheduled follow-up sequence."><span>Follow-up</span></div>
+                            <div class="af-sec-arrow">→</div>
+                            <div class="af-sec-node af-sec-final" data-tip="Synced into the CRM."><span>CRM</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             09 / SERVICES — large editorial rows, pinned heading
+        ============================================ -->
+        <section class="section section-services" id="services">
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-eyebrow reveal">— 09 / What I Build</div>
+                    <h2 class="section-title reveal">Three focused practices.</h2>
+                </div>
+
+                <div class="svc-stack">
+                    <article class="svc-row" id="svc-1">
+                        <div class="svc-row-no">01</div>
+                        <div class="svc-row-body">
+                            <h3 class="svc-row-title">Websites</h3>
+                            <p class="svc-row-desc">Modern digital experiences designed around the brand, user experience and business goal.</p>
+                            <ul class="svc-row-list">
+                                <li>Landing Pages</li>
+                                <li>Business Websites</li>
+                                <li>Portfolio Websites</li>
+                                <li>Conversion-focused Pages</li>
+                            </ul>
+                            <a href="work.html#websites" class="svc-row-link">Explore work →</a>
+                        </div>
+                    </article>
+                    <article class="svc-row" id="svc-2">
+                        <div class="svc-row-no">02</div>
+                        <div class="svc-row-body">
+                            <h3 class="svc-row-title">UGC &amp; Content</h3>
+                            <p class="svc-row-desc">Short-form product content designed to feel native in the feed while keeping the product at the center.</p>
+                            <ul class="svc-row-list">
+                                <li>UGC Videos</li>
+                                <li>Product Ads</li>
+                                <li>Social Media Content</li>
+                                <li>Multi-category Direction</li>
+                            </ul>
+                            <a href="work.html#ugc" class="svc-row-link">Explore work →</a>
+                        </div>
+                    </article>
+                    <article class="svc-row" id="svc-3">
+                        <div class="svc-row-no">03</div>
+                        <div class="svc-row-body">
+                            <h3 class="svc-row-title">AI Automation</h3>
+                            <p class="svc-row-desc">Practical AI systems that automate repetitive business workflows — voice, logic, and CRM in concert.</p>
+                            <ul class="svc-row-list">
+                                <li>AI Voice Agents</li>
+                                <li>AI Receptionists</li>
+                                <li>CRM Systems</li>
+                                <li>n8n Automation</li>
+                            </ul>
+                            <a href="work.html#ai" class="svc-row-link">Explore work →</a>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT SNIPPET -->
-        <section class="section section-about-snippet" id="about">
-            <div class="container snippet-inner">
-                <div class="snippet-text reveal">
-                    <div class="section-eyebrow">— 04 / About</div>
-                    <h2 class="snippet-title">Digital marketer, designer &amp;<br />AI automation specialist.</h2>
-                    <p>I work across websites, performance-focused content, UGC and AI-powered systems. My approach is simple: understand the problem, build the right solution, make it look good, make it useful.</p>
-                    <a href="about.html" class="text-link">Read more about me <span aria-hidden="true">→</span></a>
+        <!-- ============================================
+             10 / TOOLKIT — typography grid
+        ============================================ -->
+        <section class="section section-toolkit" id="toolkit">
+            <div class="container">
+                <div class="section-head">
+                    <div class="section-eyebrow reveal">— 10 / Tools &amp; Capabilities</div>
+                    <h2 class="section-title reveal">What I work with.</h2>
+                    <p class="section-sub reveal">No skill bars. No fake ratings. Just the tools and disciplines I reach for.</p>
                 </div>
-                <div class="snippet-cert reveal">
-                    <div class="section-eyebrow">Certified</div>
+
+                <div class="tk-cloud">
+                    <span class="tk-word tk-lg">Web Design</span>
+                    <span class="tk-word">Responsive Design</span>
+                    <span class="tk-word tk-mid">Landing Pages</span>
+                    <span class="tk-word">Editorial Layouts</span>
+                    <span class="tk-word tk-lg">UGC</span>
+                    <span class="tk-word">Short-form Video</span>
+                    <span class="tk-word tk-mid">Product Content</span>
+                    <span class="tk-word">Creative Direction</span>
+                    <span class="tk-word tk-lg">AI Agents</span>
+                    <span class="tk-word">n8n</span>
+                    <span class="tk-word tk-mid">CRM Systems</span>
+                    <span class="tk-word">Automation</span>
+                    <span class="tk-word">AI Voice Agents</span>
+                    <span class="tk-word tk-lg">Digital Marketing</span>
+                    <span class="tk-word">Creative Strategy</span>
+                    <span class="tk-word tk-mid">Performance Content</span>
+                    <span class="tk-word">Brand Systems</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             11 / ABOUT — editorial two-column
+        ============================================ -->
+        <section class="section section-about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-left">
+                        <div class="section-eyebrow reveal">— 11 / About</div>
+                        <h2 class="about-title reveal">A little about me.</h2>
+                        <p class="about-loc reveal">Based in Pakistan · Working worldwide.</p>
+                    </div>
+                    <div class="about-right">
+                        <p class="about-large reveal">I'm Abdullah — a digital marketer, website designer and AI automation specialist focused on building practical digital experiences.</p>
+                        <p class="about-medium reveal">I work across websites, UGC, content and AI-powered systems. My approach is simple — understand the problem, build the right solution, make it look good, make it useful.</p>
+                        <a href="about.html" class="text-link">Read more about me →</a>
+
+                        <div class="about-timeline">
+                            <span class="at-step">Idea</span>
+                            <span class="at-arrow">→</span>
+                            <span class="at-step">Design</span>
+                            <span class="at-arrow">→</span>
+                            <span class="at-step">Build</span>
+                            <span class="at-arrow">→</span>
+                            <span class="at-step">Launch</span>
+                            <span class="at-arrow">→</span>
+                            <span class="at-step at-step-last">Improve</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-cert-mini">
                     <div class="cert-mini">
                         <span class="cm-num">01</span>
-                        <div>
-                            <h4>Digital Marketing with AI</h4>
-                            <p>Career Institute · 2025</p>
-                        </div>
+                        <div><h4>Digital Marketing with AI</h4><p>Career Institute · 2025</p></div>
                     </div>
                     <div class="cert-mini">
                         <span class="cm-num">02</span>
-                        <div>
-                            <h4>n8n: No Code AI Agent Builder</h4>
-                            <p>Simplilearn SkillUp · 2026</p>
-                        </div>
+                        <div><h4>n8n: No Code AI Agent Builder</h4><p>Simplilearn SkillUp · 2026</p></div>
                     </div>
-                    <a href="about.html#certs" class="text-link">View certificates <span aria-hidden="true">→</span></a>
+                    <a href="about.html#certs" class="text-link">View certificates →</a>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
+        <!-- ============================================
+             12 / FINAL CTA
+        ============================================ -->
         <section class="section section-cta" id="cta">
             <div class="container cta-inner">
-                <div class="cta-eyebrow reveal">— 05 / Get in touch</div>
-                <h2 class="cta-title reveal">Have a Project in Mind?</h2>
+                <div class="cta-eyebrow reveal">— 12 / Get in touch</div>
+                <h2 class="cta-title reveal">Have a project<br />in mind?</h2>
                 <p class="cta-sub reveal">Tell me what you're building and let's figure out the right way to bring it to life.</p>
                 <div class="cta-buttons reveal">
-                    <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-primary btn-xl">
+                    <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-light btn-xl">
                         <span>Book a Call</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
                     </a>
-                    <a href="contact.html" class="btn btn-ghost btn-xl">
+                    <a href="contact.html" class="btn btn-outline-light btn-xl">
                         <span>Contact</span>
                     </a>
                 </div>
@@ -409,7 +792,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <div class="footer-name">Abdullah</div>
-                    <div class="footer-tag">Digital <span class="ft-sep">•</span> Creative <span class="ft-sep">•</span> AI</div>
+                    <div class="footer-tag">Digital <span class="ft-sep">·</span> Creative <span class="ft-sep">·</span> AI</div>
                 </div>
                 <nav class="footer-links" aria-label="Footer">
                     <a href="index.html">Home</a>

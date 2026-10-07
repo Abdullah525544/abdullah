@@ -410,3 +410,362 @@
     }
 
 })();
+
+/* ===========================================================
+   ABDULLAH — Interactive Upgrade
+   GSAP + ScrollTrigger behavior
+   (Hero parallax · Manifesto reveal · Capabilities pin ·
+    Horizontal showcase · UGC reel parallax · SVG diagrams ·
+    Services sticky rows · Toolkit cloud · Cursor label)
+   =========================================================== */
+
+(function () {
+    'use strict';
+
+    if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+        // CDN failed or reduced motion — bail silently; existing vanilla behavior still works
+        return;
+    }
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------- CURSOR MICRO-LABEL ---------- */
+    const cursorLabel = document.getElementById('cursorLabel');
+    const cursorLabelText = cursorLabel ? cursorLabel.querySelector('.cursor-label-text') : null;
+    const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (cursorLabel && isFinePointer && !prefersReduced) {
+        let cx = 0, cy = 0, tx = 0, ty = 0;
+        let rafId = null;
+        const tick = () => {
+            cx += (tx - cx) * 0.18;
+            cy += (ty - cy) * 0.18;
+            cursorLabel.style.transform = `translate(${cx}px, ${cy}px) translate(-50%, -50%) scale(${cursorLabel.classList.contains('is-visible') ? 1 : 0.6})`;
+            rafId = requestAnimationFrame(tick);
+        };
+        window.addEventListener('mousemove', (e) => {
+            tx = e.clientX;
+            ty = e.clientY;
+            if (!rafId) rafId = requestAnimationFrame(tick);
+        }, { passive: true });
+
+        document.querySelectorAll('[data-cursor-label]').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                const t = el.dataset.cursorLabel;
+                if (cursorLabelText) cursorLabelText.textContent = t;
+                cursorLabel.classList.add('is-visible');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorLabel.classList.remove('is-visible');
+            });
+        });
+    }
+
+    /* ---------- HERO SCROLL TYPOGRAPHY (BUILD ? BUILD DIGITAL ? BUILD DIGITAL EXPERIENCES) ---------- */
+    const stTexts = document.querySelectorAll('.hero-scrolltype .st-text');
+    if (stTexts.length && !prefersReduced) {
+        ScrollTrigger.create({
+            trigger: '.hero',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+            onUpdate: (self) => {
+                const p = self.progress;
+                stTexts.forEach((el, i) => {
+                    const t = i / (stTexts.length - 1);
+                    if (p >= t) el.classList.add('is-on');
+                    else el.classList.remove('is-on');
+                });
+            }
+        });
+    }
+
+    /* ---------- HERO SUBTLE PARALLAX (text/portrait/annotations at different speeds) ---------- */
+    if (!prefersReduced) {
+        gsap.to('.hero-text', {
+            y: -40,
+            ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+        });
+        gsap.to('[data-parallax="0.4"]', {
+            y: -20,
+            ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+        });
+        gsap.to('.hero-annotation', {
+            y: -10,
+            ease: 'none',
+            scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+        });
+    }
+
+    /* ---------- MANIFESTO LINE REVEAL ---------- */
+    const manifestoLines = document.querySelectorAll('.manifesto-title .m-line');
+    if (manifestoLines.length) {
+        if (prefersReduced) {
+            manifestoLines.forEach(l => l.classList.add('is-on'));
+        } else {
+            ScrollTrigger.batch(manifestoLines, {
+                start: 'top 80%',
+                onEnter: (els) => els.forEach(l => l.classList.add('is-on')),
+                once: true
+            });
+        }
+    }
+
+    /* ---------- CAPABILITIES STICKY PIN (left stays, right swaps by scroll) ---------- */
+    const capSection = document.querySelector('.section-capabilities');
+    if (capSection && !prefersReduced) {
+        const rows = capSection.querySelectorAll('.cap-row');
+        const panels = capSection.querySelectorAll('.cap-panel');
+        const total = rows.length;
+
+        const setActive = (idx) => {
+            rows.forEach((r, i) => r.classList.toggle('is-active', i === idx));
+            panels.forEach((p, i) => p.classList.toggle('is-active', i === idx));
+        };
+
+        // Click rows to scroll-jump to that panel
+        rows.forEach((row, i) => {
+            row.addEventListener('click', () => {
+                const panel = panels[i];
+                if (!panel) return;
+                const rect = panel.getBoundingClientRect();
+                const top = rect.top + window.scrollY - 140;
+                window.scrollTo({ top, behavior: 'smooth' });
+            });
+        });
+
+        ScrollTrigger.create({
+            trigger: capSection,
+            start: 'top top+=100',
+            end: () => `+=${(total - 1) * 320}`,
+            pin: '.cap-left',
+            pinSpacing: false,
+            anticipatePin: 1
+        });
+
+        // Trigger panel swap based on which panel is in view
+        panels.forEach((panel, i) => {
+            ScrollTrigger.create({
+                trigger: panel,
+                start: 'top 60%',
+                end: 'bottom 40%',
+                onEnter: () => setActive(i),
+                onEnterBack: () => setActive(i)
+            });
+        });
+    } else if (capSection) {
+        // Reduced motion: just default first active
+        capSection.querySelectorAll('.cap-row').forEach((r, i) => r.classList.toggle('is-active', i === 0));
+        capSection.querySelectorAll('.cap-panel').forEach((p, i) => p.classList.toggle('is-active', i === 0));
+    }
+
+    /* ---------- HORIZONTAL SCROLL SHOWCASE ---------- */
+    const showcasePin = document.querySelector('.showcase-pin');
+    const showcaseTrack = document.getElementById('showcaseTrack');
+    if (showcasePin && showcaseTrack && !prefersReduced) {
+        const cards = showcaseTrack.querySelectorAll('.showcase-card');
+        const cardWidth = () => cards[0] ? cards[0].offsetWidth + 36 : 720;
+
+        // Scale neighbors
+        cards.forEach((card, i) => {
+            ScrollTrigger.create({
+                trigger: card,
+                containerAnimation: undefined,
+                start: 'top 80%',
+                onToggle: (self) => {
+                    card.style.transform = self.isActive ? 'scale(1)' : 'scale(0.92)';
+                    card.style.opacity = self.isActive ? '1' : '0.7';
+                }
+            });
+        });
+
+        const distance = () => showcaseTrack.scrollWidth - window.innerWidth;
+
+        gsap.to(showcaseTrack, {
+            x: () => -distance(),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: showcasePin,
+                start: 'top top',
+                end: () => `+=${distance()}`,
+                scrub: 1,
+                invalidateOnRefresh: true,
+                anticipatePin: 1
+            }
+        });
+
+        // Pin the section
+        ScrollTrigger.create({
+            trigger: showcasePin,
+            start: 'top top',
+            end: () => `+=${distance()}`,
+            pin: true,
+            anticipatePin: 1
+        });
+    }
+
+    /* ---------- UGC REEL WALL PARALLAX (different speeds per item) ---------- */
+    if (!prefersReduced) {
+        document.querySelectorAll('.ugc-reel-item[data-parallax-speed]').forEach(item => {
+            const speed = parseFloat(item.dataset.parallaxSpeed) || 0.1;
+            gsap.to(item, {
+                y: () => -window.innerHeight * speed,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.section-ugc-reel',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+        });
+    }
+
+    /* ---------- HOW I THINK (SVG line draw + node activation) ---------- */
+    const thinkSvg = document.getElementById('thinkSvg');
+    if (thinkSvg && !prefersReduced) {
+        const lineFill = thinkSvg.querySelector('.td-line-fill');
+        const pulse = thinkSvg.querySelector('.td-pulse');
+        const nodes = thinkSvg.querySelectorAll('.td-node');
+
+        // Set initial dashoffset
+        const lineLen = lineFill.getTotalLength();
+        lineFill.style.strokeDasharray = lineLen;
+        lineFill.style.strokeDashoffset = lineLen;
+
+        ScrollTrigger.create({
+            trigger: '.think-diagram',
+            start: 'top 80%',
+            end: 'bottom 60%',
+            scrub: 1,
+            onUpdate: (self) => {
+                const p = self.progress;
+                lineFill.style.strokeDashoffset = lineLen * (1 - p);
+                pulse.setAttribute('cy', 60 + p * 640);
+                pulse.style.opacity = p > 0.02 && p < 0.98 ? 1 : 0;
+
+                const activeIdx = Math.min(nodes.length - 1, Math.floor(p * nodes.length));
+                nodes.forEach((n, i) => n.classList.toggle('is-active', i <= activeIdx));
+            }
+        });
+    } else if (thinkSvg) {
+        // Reduced motion: just show everything
+        const lineFill = thinkSvg.querySelector('.td-line-fill');
+        const lineLen = lineFill.getTotalLength();
+        lineFill.style.strokeDashoffset = 0;
+        thinkSvg.querySelectorAll('.td-node').forEach(n => n.classList.add('is-active'));
+    }
+
+    /* ---------- AI FLOW DIAGRAM ---------- */
+    const aiFlowSvg = document.getElementById('aiFlowSvg');
+    if (aiFlowSvg && !prefersReduced) {
+        const pathFill = aiFlowSvg.querySelector('.af-path-fill');
+        const signal = aiFlowSvg.querySelector('.af-signal');
+        const nodes = aiFlowSvg.querySelectorAll('.af-node');
+
+        const pathLen = pathFill.getTotalLength();
+        pathFill.style.strokeDasharray = pathLen;
+        pathFill.style.strokeDashoffset = pathLen;
+
+        ScrollTrigger.create({
+            trigger: '.ai-flow-stage',
+            start: 'top 75%',
+            end: 'bottom 70%',
+            scrub: 1,
+            onUpdate: (self) => {
+                const p = self.progress;
+                pathFill.style.strokeDashoffset = pathLen * (1 - p);
+
+                const point = pathFill.getPointAtLength(pathLen * p);
+                signal.setAttribute('cx', point.x);
+                signal.setAttribute('cy', point.y);
+                signal.style.opacity = p > 0.01 && p < 0.99 ? 1 : 0;
+
+                // Activate node based on its order
+                const activeIdx = Math.min(nodes.length - 1, Math.floor(p * nodes.length));
+                nodes.forEach((n, i) => n.classList.toggle('is-active', i <= activeIdx));
+            }
+        });
+
+        // Tooltip behavior on hover
+        const tooltip = document.getElementById('afTooltip');
+        const tooltipTitle = tooltip ? tooltip.querySelector('.af-tooltip-title') : null;
+        const tooltipDesc = tooltip ? tooltip.querySelector('.af-tooltip-desc') : null;
+
+        if (tooltip) {
+            const tips = {
+                user: ['User', 'The source — a website visitor, lead, or customer.'],
+                input: ['Input', 'The first signal — a form, message, or trigger event.'],
+                agent: ['AI Agent', 'Processes incoming data and decides the response.'],
+                logic: ['Logic', 'Applies business rules and conditional logic.'],
+                automation: ['Automation', 'Triggers actions based on the agent\'s decision.'],
+                crm: ['CRM / DB', 'Stores and organizes customer information.'],
+                action: ['Action', 'Final action — reply, follow-up, alert, or task.']
+            };
+
+            aiFlowSvg.parentElement.querySelectorAll('.af-node').forEach(node => {
+                const step = node.dataset.step;
+                const tip = tips[step];
+                if (!tip || !tooltip) return;
+                node.addEventListener('mouseenter', () => {
+                    tooltipTitle.textContent = tip[0];
+                    tooltipDesc.textContent = tip[1];
+                    const r = node.getBoundingClientRect();
+                    const pr = aiFlowSvg.parentElement.getBoundingClientRect();
+                    tooltip.style.left = (r.left - pr.left + r.width / 2) + 'px';
+                    tooltip.style.top = (r.top - pr.top - 4) + 'px';
+                    tooltip.classList.add('is-visible');
+                });
+                node.addEventListener('mouseleave', () => {
+                    tooltip.classList.remove('is-visible');
+                });
+            });
+        }
+    } else if (aiFlowSvg) {
+        const pathFill = aiFlowSvg.querySelector('.af-path-fill');
+        if (pathFill) pathFill.style.strokeDashoffset = 0;
+        aiFlowSvg.parentElement.querySelectorAll('.af-node').forEach(n => n.classList.add('is-active'));
+    }
+
+    /* ---------- TOOLKIT CLOUD REVEAL ---------- */
+    const tkWords = document.querySelectorAll('.tk-word');
+    if (tkWords.length) {
+        if (prefersReduced) {
+            tkWords.forEach(w => w.classList.add('is-on'));
+        } else {
+            ScrollTrigger.batch(tkWords, {
+                start: 'top 85%',
+                onEnter: (els) => {
+                    els.forEach((w, i) => {
+                        setTimeout(() => w.classList.add('is-on'), i * 50);
+                    });
+                },
+                once: true
+            });
+        }
+    }
+
+    /* ---------- CURSOR LABEL BINDINGS (auto-bind VIEW/PLAY based on video card type) ---------- */
+    if (cursorLabel && isFinePointer) {
+        document.querySelectorAll('[data-video-id]').forEach(el => {
+            el.setAttribute('data-cursor-label', 'Play');
+        });
+        document.querySelectorAll('.text-link, .btn').forEach(el => {
+            if (el.hasAttribute('data-cursor-label')) return;
+            el.setAttribute('data-cursor-label', '');
+            el.addEventListener('mouseenter', () => {
+                if (!cursorLabelText) return;
+                cursorLabelText.textContent = '?';
+                cursorLabel.classList.add('is-visible');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorLabel.classList.remove('is-visible');
+            });
+        });
+    }
+
+})();

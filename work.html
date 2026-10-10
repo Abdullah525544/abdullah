@@ -1,384 +1,186 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#F5F3EE" />
-    <title>Work — Abdullah</title>
-    <meta name="description" content="Full archive of websites, UGC content and AI systems built by Abdullah." />
-    <meta name="author" content="Abdullah" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23F5F3EE'/%3E%3Ctext x='50' y='66' font-family='Inter, sans-serif' font-size='52' font-weight='700' fill='%23172554' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-
-    <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#17252F" />
+<title>Work — Abdullah</title>
+<meta name="description" content="A selection of websites, UGC content and AI systems built by Abdullah." />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%2317252F'/%3E%3Ctext x='50' y='66' font-family='Manrope, sans-serif' font-size='52' font-weight='800' fill='%23F0E8DA' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E" />
+<link href="https://fonts.googleapis.com" rel="preconnect" />
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+<link rel="stylesheet" href="tk-styles.css" />
 </head>
 <body>
 
-    <div class="cursor-glow" aria-hidden="true"></div>
+<header class="tk-nav">
+    <div class="tk-nav-inner">
+        <a href="index.html" class="tk-nav-brand"><span>Abdullah</span><span class="dot"></span></a>
+        <nav class="tk-nav-links" aria-label="Primary">
+            <a href="index.html" class="tk-nav-link" data-nav-link>Home</a>
+            <a href="work.html" class="tk-nav-link" data-nav-link>Work</a>
+            <a href="services.html" class="tk-nav-link" data-nav-link>Services</a>
+            <a href="about.html" class="tk-nav-link" data-nav-link>About</a>
+            <a href="contact.html" class="tk-nav-link" data-nav-link>Contact</a>
+        </nav>
+        <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="tk-nav-cta">Book A Call</a>
+        <button class="tk-nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span class="material-symbols-outlined">menu</span></button>
+    </div>
+    <div class="tk-mobile-menu" id="mobileMenu" aria-hidden="true">
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+        <a href="services.html">Services</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="tk-pill cream-pill" style="margin-top:1rem;">Book A Call</a>
+    </div>
+</header>
 
-    <!-- Navigation -->
-    <header class="nav" id="nav">
-        <div class="container nav-inner">
-            <a href="index.html" class="brand" aria-label="Abdullah — Home">ABDULLAH<span class="brand-dot">.</span></a>
+<main>
 
-            <nav class="nav-links" aria-label="Primary">
-                <a href="index.html" class="nav-link" data-nav-link>Home</a>
-                <a href="work.html" class="nav-link" data-nav-link>Work</a>
-                <a href="services.html" class="nav-link" data-nav-link>Services</a>
-                <a href="about.html" class="nav-link" data-nav-link>About</a>
-                <a href="contact.html" class="nav-link" data-nav-link>Contact</a>
-            </nav>
+<section class="tk-page-header">
+    <div class="tk-container">
+        <span class="eyebrow">01 / Production Archive</span>
+        <h1>Selected Work.</h1>
+        <p>Websites, UGC content and AI systems. Real work, no filler.</p>
+    </div>
+</section>
 
-            <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-primary nav-cta">
-                <span>Book a Call</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-            </a>
-
-            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
-                <span></span><span></span>
-            </button>
+<section class="tk-work-page" id="websites">
+    <div class="tk-container">
+        <div class="tk-work-filters">
+            <button data-filter="all" class="is-active">All</button>
+            <button data-filter="websites">Websites</button>
+            <button data-filter="ugc">UGC</button>
+            <button data-filter="ai">AI</button>
         </div>
 
-        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-            <div class="mobile-menu-inner">
-                <a href="index.html" class="mobile-link">Home</a>
-                <a href="work.html" class="mobile-link">Work</a>
-                <a href="services.html" class="mobile-link">Services</a>
-                <a href="about.html" class="mobile-link">About</a>
-                <a href="contact.html" class="mobile-link">Contact</a>
-                <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-primary mobile-cta">Book a Call</a>
+        <!-- Websites -->
+        <div class="tk-work-group" data-group="websites">
+            <span class="label">// 01 Websites</span>
+            <p class="sub">Five website projects across healthcare, mindfulness, e-commerce and content platforms.</p>
+            <div class="row">
+                <article class="tk-work-card" data-video-id="MEr43Q2GdkM">
+                    <div class="media"><img src="https://i.ytimg.com/vi/MEr43Q2GdkM/maxresdefault.jpg" alt="Precision Focused Healthcare" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">Website · 01</span><h3>Precision Focused Healthcare</h3><p>Focused healthcare website with clear structure and conversion-ready pages.</p></div><div class="foot"><span>HEALTHCARE</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="wIqwLIjSB2E">
+                    <div class="media"><img src="https://i.ytimg.com/vi/wIqwLIjSB2E/maxresdefault.jpg" alt="Mindful Daily Check-In" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">Website · 02</span><h3>Mindful — Daily Check-In</h3><p>Editorial-style app website for a daily mindfulness product.</p></div><div class="foot"><span>APP / EDITORIAL</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="In9nWHJ5Gxw">
+                    <div class="media"><img src="https://i.ytimg.com/vi/In9nWHJ5Gxw/maxresdefault.jpg" alt="Website Project 01" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">Website · 03</span><h3>Website Project 01</h3><p>Custom website with brand typography and conversion-focused structure.</p></div><div class="foot"><span>WEBSITE</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="USwXixnEe1k">
+                    <div class="media"><img src="https://i.ytimg.com/vi/USwXixnEe1k/maxresdefault.jpg" alt="Website Project 02" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">Website · 04</span><h3>Website Project 02</h3><p>A full website project built around clarity, brand and performance.</p></div><div class="foot"><span>WEBSITE</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="wR4eg1iAATs">
+                    <div class="media"><img src="https://i.ytimg.com/vi/wR4eg1iAATs/maxresdefault.jpg" alt="Website Project 05" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">Website · 05</span><h3>Website Project 05</h3><p>Editorial layout with sharp visual hierarchy.</p></div><div class="foot"><span>WEBSITE</span><span>2024</span></div></div>
+                </article>
             </div>
         </div>
-    </header>
 
-    <main id="top">
-
-        <!-- PAGE HEADER -->
-        <section class="page-header">
-            <div class="container">
-                <div class="section-eyebrow reveal">— All Work</div>
-                <h1 class="page-title reveal">Selected Work</h1>
-                <p class="page-sub reveal">A selection of websites, UGC content and AI systems I've built. Filter by category to explore.</p>
-            </div>
-        </section>
-
-        <!-- WORK ARCHIVE -->
-        <section class="section section-work">
-            <div class="container">
-
-                <!-- Work category filters -->
-                <div class="work-filters reveal" role="tablist" aria-label="Work filters">
-                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All <span class="filter-count">19</span></button>
-                    <button class="filter-btn" data-filter="websites" role="tab" aria-selected="false">Websites <span class="filter-count">5</span></button>
-                    <button class="filter-btn" data-filter="ugc" role="tab" aria-selected="false">UGC <span class="filter-count">11</span></button>
-                    <button class="filter-btn" data-filter="ai" role="tab" aria-selected="false">AI Automation <span class="filter-count">3</span></button>
-                </div>
-
-                <!-- Websites -->
-                <div class="work-group" data-group="websites">
-                    <div class="group-label reveal">Website Creation <span class="group-count">5 projects</span></div>
-                    <div class="work-grid editorial-grid">
-                        <article class="work-card work-feature reveal" data-video-id="MEr43Q2GdkM" data-category="websites">
-                            <div class="thumb">
-                                <img src="https://i.ytimg.com/vi/MEr43Q2GdkM/maxresdefault.jpg" alt="Precision Focused Healthcare preview" loading="lazy" />
-                                <button class="play-btn" aria-label="Play video">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <div class="thumb-overlay"></div>
-                            </div>
-                            <div class="work-meta">
-                                <span class="work-cat">Website</span>
-                                <h3 class="work-title">Precision Focused Healthcare</h3>
-                                <span class="work-view">View project →</span>
-                            </div>
-                        </article>
-
-                        <article class="work-card reveal" data-video-id="wIqwLIjSB2E" data-category="websites">
-                            <div class="thumb">
-                                <img src="https://i.ytimg.com/vi/wIqwLIjSB2E/maxresdefault.jpg" alt="Mindful check-in app preview" loading="lazy" />
-                                <button class="play-btn" aria-label="Play video">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <div class="thumb-overlay"></div>
-                            </div>
-                            <div class="work-meta">
-                                <span class="work-cat">Website</span>
-                                <h3 class="work-title">Mindful — Daily Check-In</h3>
-                                <span class="work-view">View project →</span>
-                            </div>
-                        </article>
-
-                        <article class="work-card reveal" data-video-id="In9nWHJ5Gxw" data-category="websites">
-                            <div class="thumb">
-                                <img src="https://i.ytimg.com/vi/In9nWHJ5Gxw/maxresdefault.jpg" alt="Website Project 01 preview" loading="lazy" />
-                                <button class="play-btn" aria-label="Play video">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <div class="thumb-overlay"></div>
-                            </div>
-                            <div class="work-meta">
-                                <span class="work-cat">Website</span>
-                                <h3 class="work-title">Website Project 01</h3>
-                                <span class="work-view">View project →</span>
-                            </div>
-                        </article>
-
-                        <article class="work-card reveal" data-video-id="USwXixnEe1k" data-category="websites">
-                            <div class="thumb">
-                                <img src="https://i.ytimg.com/vi/USwXixnEe1k/maxresdefault.jpg" alt="Website Project 02 preview" loading="lazy" />
-                                <button class="play-btn" aria-label="Play video">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <div class="thumb-overlay"></div>
-                            </div>
-                            <div class="work-meta">
-                                <span class="work-cat">Website</span>
-                                <h3 class="work-title">Website Project 02</h3>
-                                <span class="work-view">View project →</span>
-                            </div>
-                        </article>
-
-                        <article class="work-card reveal" data-video-id="wR4eg1iAATs" data-category="websites">
-                            <div class="thumb">
-                                <img src="https://i.ytimg.com/vi/wR4eg1iAATs/maxresdefault.jpg" alt="Website Project 05 preview" loading="lazy" />
-                                <button class="play-btn" aria-label="Play video">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <div class="thumb-overlay"></div>
-                            </div>
-                            <div class="work-meta">
-                                <span class="work-cat">Website</span>
-                                <h3 class="work-title">Website Project 05</h3>
-                                <span class="work-view">View project →</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- UGC -->
-                <div class="work-group" data-group="ugc" id="ugc">
-                    <div class="group-label reveal">UGC &amp; Product Videos <span class="group-count">11 videos</span></div>
-                    <p class="group-sub reveal">Short-form product content designed to feel native in the feed while keeping the product at the center.</p>
-
-                    <div class="ugc-sections">
-                        <div class="ugc-block reveal">
-                            <div class="ugc-block-head">
-                                <h4>Hair Care</h4>
-                                <span class="ugc-count">3 videos</span>
-                            </div>
-                            <div class="ugc-row">
-                                <article class="ugc-card" data-video-id="7E-zWxOlALw" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/7E-zWxOlALw/maxresdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Hair Care</span>
-                                </article>
-                                <article class="ugc-card" data-video-id="nNY83tZYHNg" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/nNY83tZYHNg/maxresdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Hair Care</span>
-                                </article>
-                                <article class="ugc-card" data-video-id="vS-BWQJIKIQ" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/vS-BWQJIKIQ/maxresdefault.jpg" alt="Hair oil UGC video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Hair Care</span>
-                                </article>
-                            </div>
-                        </div>
-
-                        <div class="ugc-block reveal">
-                            <div class="ugc-block-head"><h4>Skincare</h4><span class="ugc-count">1 video</span></div>
-                            <div class="ugc-row">
-                                <article class="ugc-card" data-video-id="uk0Egv4TspY" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/uk0Egv4TspY/maxresdefault.jpg" alt="Skincare UGC video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Skincare</span>
-                                </article>
-                            </div>
-                        </div>
-
-                        <div class="ugc-block reveal">
-                            <div class="ugc-block-head"><h4>Watch</h4><span class="ugc-count">3 videos</span></div>
-                            <div class="ugc-row">
-                                <article class="ugc-card" data-video-id="XOl3vkg-HM8" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/XOl3vkg-HM8/maxresdefault.jpg" alt="Watch product video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Watch</span>
-                                </article>
-                                <article class="ugc-card" data-video-id="NwsMC_wqVPM" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/NwsMC_wqVPM/maxresdefault.jpg" alt="Watch product video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Watch</span>
-                                </article>
-                                <article class="ugc-card" data-video-id="4ZG2_j5i7nk" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/4ZG2_j5i7nk/maxresdefault.jpg" alt="Watch product video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Watch</span>
-                                </article>
-                            </div>
-                        </div>
-
-                        <div class="ugc-block reveal">
-                            <div class="ugc-block-head"><h4>Fragrance &amp; Product Ads</h4><span class="ugc-count">4 videos</span></div>
-                            <div class="ugc-row">
-                                <article class="ugc-card" data-video-id="UWed2OYzINY" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/UWed2OYzINY/maxresdefault.jpg" alt="Fragrance product video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Fragrance</span>
-                                </article>
-                                <article class="ugc-card" data-video-id="5fAPOmSdLy0" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/5fAPOmSdLy0/maxresdefault.jpg" alt="Fragrance product video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Fragrance</span>
-                                </article>
-                                <article class="ugc-card" data-video-id="osmQ1uB2PzE" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/osmQ1uB2PzE/maxresdefault.jpg" alt="Product ad video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Product Ad</span>
-                                </article>
-                                <article class="ugc-card" data-video-id="cH_I_RODHzE" data-category="ugc">
-                                    <div class="ugc-thumb"><img src="https://i.ytimg.com/vi/cH_I_RODHzE/maxresdefault.jpg" alt="Product ad video" loading="lazy" />
-                                        <button class="play-btn small" aria-label="Play video"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button>
-                                    </div>
-                                    <span class="ugc-tag">Product Ad</span>
-                                </article>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AI -->
-                <div class="work-group" data-group="ai">
-                    <div class="group-label reveal">AI Automation <span class="group-count">3 demos</span></div>
-                    <p class="group-sub reveal">Practical AI workflows that reduce repetitive work and help businesses move faster.</p>
-
-                    <div class="work-grid ai-grid">
-                        <article class="work-card ai-card reveal" data-video-id="r1W2g3Y0JAk" data-category="ai">
-                            <div class="thumb">
-                                <img src="https://i.ytimg.com/vi/r1W2g3Y0JAk/maxresdefault.jpg" alt="AI Voice Agent demo preview" loading="lazy" />
-                                <button class="play-btn" aria-label="Play video">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <div class="thumb-overlay"></div>
-                            </div>
-                            <div class="work-meta">
-                                <span class="work-cat">AI Voice Agent</span>
-                                <h3 class="work-title">AI Voice Agent Demo</h3>
-                                <span class="work-view">View demo →</span>
-                            </div>
-                        </article>
-
-                        <article class="work-card ai-card reveal" data-video-id="4Xgy7b65lpg" data-category="ai">
-                            <div class="thumb">
-                                <img src="https://i.ytimg.com/vi/4Xgy7b65lpg/maxresdefault.jpg" alt="Advanced CRM demo preview" loading="lazy" />
-                                <button class="play-btn" aria-label="Play video">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <div class="thumb-overlay"></div>
-                            </div>
-                            <div class="work-meta">
-                                <span class="work-cat">CRM System</span>
-                                <h3 class="work-title">Advanced CRM</h3>
-                                <span class="work-view">View demo →</span>
-                            </div>
-                        </article>
-
-                        <article class="work-card ai-card reveal" data-video-id="6DBikSIOahQ" data-category="ai">
-                            <div class="thumb">
-                                <img src="https://i.ytimg.com/vi/6DBikSIOahQ/maxresdefault.jpg" alt="AI Receptionist demo preview" loading="lazy" />
-                                <button class="play-btn" aria-label="Play video">
-                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                </button>
-                                <div class="thumb-overlay"></div>
-                            </div>
-                            <div class="work-meta">
-                                <span class="work-cat">AI Receptionist</span>
-                                <h3 class="work-title">AI Receptionist Demo</h3>
-                                <span class="work-view">View demo →</span>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="section section-cta">
-            <div class="container cta-inner">
-                <div class="cta-eyebrow reveal">— Want to work together?</div>
-                <h2 class="cta-title reveal">Have a Project in Mind?</h2>
-                <p class="cta-sub reveal">Tell me what you're building and let's figure out the right way to bring it to life.</p>
-                <div class="cta-buttons reveal">
-                    <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="btn btn-primary btn-xl">
-                        <span>Book a Call</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <div class="footer-name">Abdullah</div>
-                    <div class="footer-tag">Digital <span class="ft-sep">•</span> Creative <span class="ft-sep">•</span> AI</div>
-                </div>
-                <nav class="footer-links" aria-label="Footer">
-                    <a href="index.html">Home</a>
-                    <a href="work.html">Work</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                    <a href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener" class="footer-cta">Book a Call →</a>
-                </nav>
-            </div>
-            <div class="footer-bottom">
-                <span>© 2026 Abdullah. All rights reserved.</span>
-                <span class="footer-loc">Based in Pakistan · Working Worldwide</span>
+        <!-- UGC -->
+        <div class="tk-work-group" data-group="ugc" id="ugc">
+            <span class="label">// 02 UGC &amp; Product Content</span>
+            <p class="sub">Eleven UGC videos across hair care, skincare, watch, fragrance and product ads.</p>
+            <div class="row">
+                <article class="tk-work-card" data-video-id="7E-zWxOlALw">
+                    <div class="media"><img src="https://i.ytimg.com/vi/7E-zWxOlALw/maxresdefault.jpg" alt="Hair Oil" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Hair Care · 01</span><h3>Scalp Health Ritual</h3><p>Direct hook test.</p></div><div class="foot"><span>HAIR CARE</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="nNY83tZYHNg">
+                    <div class="media"><img src="https://i.ytimg.com/vi/nNY83tZYHNg/maxresdefault.jpg" alt="Hair Oil" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Hair Care · 02</span><h3>Ingredient Spotlight</h3><p>Native reel.</p></div><div class="foot"><span>HAIR CARE</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="uk0Egv4TspY">
+                    <div class="media"><img src="https://i.ytimg.com/vi/uk0Egv4TspY/maxresdefault.jpg" alt="Skincare" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Skincare · 01</span><h3>Texture &amp; Glow</h3><p>Social ad hook.</p></div><div class="foot"><span>SKINCARE</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="XOl3vkg-HM8">
+                    <div class="media"><img src="https://i.ytimg.com/vi/XOl3vkg-HM8/maxresdefault.jpg" alt="Watch" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Watch · 01</span><h3>Horology Detail</h3><p>Macro capture.</p></div><div class="foot"><span>WATCH</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="NwsMC_wqVPM">
+                    <div class="media"><img src="https://i.ytimg.com/vi/NwsMC_wqVPM/maxresdefault.jpg" alt="Watch" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Watch · 02</span><h3>Featured Watch</h3><p>Editorial product story.</p></div><div class="foot"><span>WATCH</span><span>2025</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="4ZG2_j5i7nk">
+                    <div class="media"><img src="https://i.ytimg.com/vi/4ZG2_j5i7nk/maxresdefault.jpg" alt="Watch" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Watch · 03</span><h3>Watch Product</h3><p>Tactile close-up.</p></div><div class="foot"><span>WATCH</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="UWed2OYzINY">
+                    <div class="media"><img src="https://i.ytimg.com/vi/UWed2OYzINY/maxresdefault.jpg" alt="Fragrance" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Fragrance · 01</span><h3>Atmospheric Mood</h3><p>Art directed.</p></div><div class="foot"><span>FRAGRANCE</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="5fAPOmSdLy0">
+                    <div class="media"><img src="https://i.ytimg.com/vi/5fAPOmSdLy0/maxresdefault.jpg" alt="Fragrance" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Fragrance · 02</span><h3>Fragrance Edit</h3><p>Native vertical.</p></div><div class="foot"><span>FRAGRANCE</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="vS-BWQJIKIQ">
+                    <div class="media"><img src="https://i.ytimg.com/vi/vS-BWQJIKIQ/maxresdefault.jpg" alt="Watch" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Watch · 04</span><h3>Watch Showcase</h3><p>Editorial cut.</p></div><div class="foot"><span>WATCH</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="osmQ1uB2PzE">
+                    <div class="media"><img src="https://i.ytimg.com/vi/osmQ1uB2PzE/maxresdefault.jpg" alt="Product Ad" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Product Ad · 01</span><h3>Product Ad · 01</h3><p>Conversion-ready creative.</p></div><div class="foot"><span>PRODUCT AD</span><span>2024</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="cH_I_RODHzE">
+                    <div class="media"><img src="https://i.ytimg.com/vi/cH_I_RODHzE/maxresdefault.jpg" alt="Product Ad" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">UGC · Product Ad · 02</span><h3>Product Ad · 02</h3><p>Native hook.</p></div><div class="foot"><span>PRODUCT AD</span><span>2024</span></div></div>
+                </article>
             </div>
         </div>
-    </footer>
 
-    <!-- VIDEO MODAL -->
-    <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player" hidden>
-        <div class="modal-backdrop" data-close></div>
-        <div class="modal-frame">
-            <button class="modal-close" data-close aria-label="Close video">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            </button>
-            <div class="modal-video" id="modalVideo"></div>
+        <!-- AI -->
+        <div class="tk-work-group" data-group="ai" id="ai">
+            <span class="label">// 03 AI Systems</span>
+            <p class="sub">Three AI system demos — voice agents, multi-channel CRM and an n8n agent.</p>
+            <div class="row">
+                <article class="tk-work-card" data-video-id="r1W2g3Y0JAk">
+                    <div class="media"><img src="https://i.ytimg.com/vi/r1W2g3Y0JAk/maxresdefault.jpg" alt="AI Voice Agent" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">AI · Voice Stack</span><h3>AI Voice Agent</h3><p>Real-time conversational agent for inbound calls.</p></div><div class="foot"><span>VOICE AI</span><span>2025</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="6DBikSIOahQ">
+                    <div class="media"><img src="https://i.ytimg.com/vi/6DBikSIOahQ/maxresdefault.jpg" alt="AI Receptionist" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">AI · Intake</span><h3>AI Receptionist</h3><p>Natural language telephone intake operator.</p></div><div class="foot"><span>VOICE AI</span><span>2025</span></div></div>
+                </article>
+                <article class="tk-work-card" data-video-id="4Xgy7b65lpg">
+                    <div class="media"><img src="https://i.ytimg.com/vi/4Xgy7b65lpg/maxresdefault.jpg" alt="Multi-Channel CRM" loading="lazy" /><span class="play"><span class="icon"><span class="material-symbols-outlined" style="font-size:1.5rem;">play_arrow</span></span></span></div>
+                    <div class="body"><div><span class="cat">AI · CRM Pipeline</span><h3>Multi-Channel CRM / n8n Agent</h3><p>Unified client sync + autonomous background worker.</p></div><div class="foot"><span>AUTOMATION</span><span>2025</span></div></div>
+                </article>
+            </div>
         </div>
     </div>
+</section>
 
-    <script src="script.js"></script>
-    <script>
-        (function() {
-            var path = location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('[data-nav-link]').forEach(function(l) {
-                var href = l.getAttribute('href');
-                if (href === path || (path === '' && href === 'index.html')) {
-                    l.classList.add('active');
-                }
-            });
-        })();
-    </script>
+</main>
+
+<footer class="tk-footer">
+    <div class="inner">
+        <div class="tk-footer-grid">
+            <div class="tk-footer-brand"><span class="name">Abdullah<span class="dot"></span></span><div class="tag">Digital / Creative / AI</div></div>
+            <div class="tk-footer-col"><span class="label">Index</span><div class="links"><a href="index.html">Home</a><a href="work.html">Work</a><a href="services.html">Services</a><a href="about.html">About</a><a href="contact.html">Contact</a></div></div>
+            <div class="tk-footer-col"><span class="label">Engagement</span><a class="cta" href="https://calendly.com/info-abdullah1027/30min" target="_blank" rel="noopener">Book a Call</a></div>
+        </div>
+        <div class="tk-footer-bottom"><span>© 2026 Abdullah. All rights reserved.</span><span>Based in Pakistan · Working Worldwide</span></div>
+    </div>
+</footer>
+
+<div class="tk-modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Video player" hidden>
+    <div class="tk-modal-backdrop" data-close></div>
+    <div class="tk-modal-frame">
+        <button class="tk-modal-close" data-close aria-label="Close video"><span class="material-symbols-outlined">close</span></button>
+        <div class="tk-modal-video" id="modalVideo"></div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+<script>(function(){var p=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('[data-nav-link]').forEach(function(l){if(l.getAttribute('href')===p)l.classList.add('active');});})();</script>
 </body>
 </html>

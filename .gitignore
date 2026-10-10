@@ -17,3 +17,6 @@ push_log.txt
 server_out.log
 server_err.log
 server.log
+
+_stitch_extract/
+commit_log.txt
